@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sree Lekshmi Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           Sree Lekshmi
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+           <li><a class="active" href="#">Home</a></li>
+           <li><a href="#about">About</a></li>
+           <li><a href="#skill">Skills</a></li>
+           <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section>
+            <!-- <img src="stars.png" id="stars"> -->
+            <img src="img/moon.png" id="moon">
+            <img src="img/layer4.png" id="mountains_behind">
+            <h2 id="text">Sree Lekshmi</h2>
+            <a href="#" id="btn">Explore</a>
+            <img src="img/layer2.png" id="mountains_front">
+            <img src="img/top.png" id="top_start">
+
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="about-profile">
+                <img src="img/profile.jpg" alt="Profile Picture" class="profile-img" id="profile-img">
+                <h1 id="about-name">Hi, Myself Sree Lekshmi</h1>
+                <h2 id="about-profession">And I'm a Data Analyst / Machine Learning Engineer</h2>
+                <p id="about-text">Data wrangling by day, and star gazing by night! With a Master’s in Data Science from SUNY Buffalo and a penchant for machine learning, I transform complex datasets into clear insights. 
+                    Dive into my world where numbers meet creativity, 
+                    and let's decode the universe of data together!</p>
+                <div class="social-links" id="about-social">
+                    <!-- Social Media Icons -->
+                    <a href="#" class="social-icon">FB</a>
+                    <a href="#" class="social-icon">TW</a>
+                    <a href="#" class="social-icon">IG</a>
+                    <a href="#" class="social-icon">LN</a>
+                </div>
+                <a href="#" class="btn" id="about-btn">Download CV</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id = "skill">
+        <div class="container">
+            <div class="text-container" style="width: 33%; float: left;">
+                <p>With a fervent passion for machine learning, I am dedicated to pushing boundaries, exploring new methodologies, and uncovering insights that drive impactful solutions.</p>
+            </div>
+            <div class="chart-container" style="width: 33%; float: left;">
+                <canvas id="doughnutChart"></canvas>
+            </div>
+            <div class="skills-container" style="width: 33%; float: left;">
+                <!-- List of skills -->
+                <div class="skill">
+                    <label>Data Visualizations</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="80%">80%</div>
+                    </div>
+                    <label>Machine Learning Algorithms</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="85%">85%</div>
+                    </div>
+                    <label>Statistical Analysis</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="70%">70%</div>
+                    </div>
+                    <label>Python</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="90%">90%</div>
+                    </div>
+                    <label>R</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="60%">60%</div>
+                    </div>
+                    <label>Data Manipulations</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="75%">75%</div>
+                    </div>
+                    <label>SQL</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="80%">80%</div>
+                    </div>
+                    <label>Git</label>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 0%;" data-max="55%">55%</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-section">
+        <h2 class="section-title">My Works</h2>
+        <div class="project-wrapper">
+            <div class="project-card" onclick="location.href='https://github.com/yourprojectlink1';">
+                <img src="your_image_path.jpg" alt="Project 1">
+                <div class="project-info">
+                    <h3>Dancing Dunes</h3>
+                    <p>Capturing the breathtaking beauty of sand dunes.</p>
+                    <div class="tags">
+                        <span>Photography</span>
+                        <span>Art Direction</span>
+                    </div>
+                </div>
+            </div>
+            <!-- More project cards -->
+        </div>
+    </section>
+
+
+
+    
+</body>
+<script src="script.js"></script>
+</html>

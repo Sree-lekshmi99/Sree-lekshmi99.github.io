@@ -1,0 +1,413 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(#fff, #F2DBEB);
+
+}
+nav{
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background: #1b1b1b;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px 0 100px;
+  flex-wrap: wrap;
+}
+nav .logo{
+  color: #fff;
+  font-size: 35px;
+  font-weight: 600;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav ul li{
+  margin: 0 5px;
+}
+nav ul li a{
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+nav ul li a.active,
+nav ul li a:hover{
+  color: #111;
+  background: #fff;
+}
+nav .menu-btn i{
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+    nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+    nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background: #111;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%; 
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: cyan;
+  }
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/* for adding downside img fade  */
+section::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #1c0522, transparent);
+    z-index: 15;
+}
+
+section img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    overflow: hidden;
+}
+  
+section img#moon{
+    mix-blend-mode: screen;
+}
+
+section img#mountains_front {
+    z-index: 10;
+}
+
+#text{
+    position: absolute;
+    color: #fff;
+    white-space: nowrap;
+    font-size: 7vw;
+    z-index: 9;
+    right: -35px;
+}
+
+#btn{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: #fff;
+    color: #2b1055;
+    font-size: 1.5em;
+    z-index: 9;
+    transform: translateY(100px);
+}
+
+.sec{
+    position: relative;
+    padding: 100px;
+    background: #1c0522;
+}
+
+.sec h2{
+    font-size: 3.5em;
+    margin-bottom: 10px; 
+    color: #fff;
+}
+
+.sec p{
+    font-size: 1.2em; 
+    color: #fff;
+}
+
+
+#------------------------------------------------------------------------------------------------------------------------------------------
+
+#about {
+  background-color: #F2DBEB; /* Existing background color */
+  color: #ffffff; /* May need adjustment if the background is light */
+  padding: 50px 0;
+  text-align: center;
+}
+
+#about .container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+.about-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 150px; /* Adjust size as needed */
+  margin-bottom: 20px;
+  transition: transform 0.5s ease-out; /* Smooth scaling transition */
+  opacity: 0; /* Start invisible */
+  transform: scale(0.8); /* Start slightly scaled down */
+}
+
+#about h1, #about h2 {
+  margin: 10px 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+  opacity: 0; /* Start invisible */
+  transform: scale(0.8); /* Start slightly scaled down */
+}
+
+#about p {
+  margin-bottom: 20px;
+  font-size: 16px; /* Adjust size as needed */
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start lower */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+}
+
+.social-links {
+  margin: 20px 0;
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start lower */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+}
+
+.social-icon {
+  padding: 10px; /* Adjust padding as needed */
+  margin: 0 5px;
+  background: #334455; /* Existing icon background color */
+  color: #ffffff; /* Icon color */
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 16px; /* Adjust font size as needed */
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #445566; /* Existing button color */
+  color: #ffffff;
+  border-radius: 20px;
+  opacity: 0; /* Start invisible */
+  transform: translateY(20px); /* Start lower */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+}
+
+#about .profile-img, #about #about-name, #about #about-profession, #about #about-text, #about #about-social, #about #about-btn {
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  opacity: 0;
+  transform: translateY(50px) scale(0.8);
+}
+
+#-------------------------------------------------------
+
+html, body {
+  height: 100%; /* Ensure the full height is used */
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around; /* Space items evenly */
+  align-items: center; /* Center items vertically */
+  height: 100vh; /* Use full screen height */
+  width: 100%; /* Full width */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.skills-container, .chart-container, .text-container {
+  flex: 1; /* Each section takes equal space */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally in each container */
+  padding: 0 20px;
+}
+
+.chart-container {
+  justify-content: center;
+  min-width: 300px;
+}
+
+.text-container {
+  align-items: flex-start; /* Align text to the start of the container */
+  text-align: left; /* Left align text for better readability */
+}
+
+#doughnutChart {
+  width: 100%; /* Full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 300px; /* Maximum width */
+  max-height: 300px; /* Maximum height */
+}
+
+.skill label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  text-align: left;
+  width: 100%;
+}
+
+.progress-container {
+  background-color: #ddd;
+  width: 100%;
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #92608A;
+  border-radius: 10px;
+  color: white;
+  text-align: right;
+  line-height: 20px;
+  padding-right: 5px;
+  transition: width 2s ease;
+}
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .skills-container, .chart-container, .text-container {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .skill label, .text-container {
+    text-align: center;
+  }
+}
+
+
+
+
+#------------------------------------
+
+.projects-section {
+  background-color: #f4f4f4; /* Replace with your preferred color */
+  padding: 40px;
+  text-align: center;
+}
+
+.project-wrapper {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.project-card {
+  background-color: #fff; /* Replace with your preferred color */
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  width: 300px; /* Adjust based on your design */
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Creates the sliding effect */
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.project-info {
+  padding: 20px;
+}
+
+.project-info h3, .project-info p {
+  margin: 5px 0;
+}
+
+.tags span {
+  background-color: #333; /* Replace with your preferred color */
+  color: #fff;
+  padding: 5px 10px;
+  margin-right: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  color: #333; /* Replace with your preferred color */
+}
