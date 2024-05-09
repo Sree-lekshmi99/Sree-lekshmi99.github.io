@@ -190,13 +190,13 @@ section img#mountains_front {
 #about {
   background-color: #F2DBEB; /* Existing background color */
   color: #ffffff; /* May need adjustment if the background is light */
-  padding: 50px 0;
+  padding: 20px 0;
   text-align: center;
 }
 
 #about .container {
-  max-width: 960px;
-  margin: auto;
+  max-width: 700px;
+  margin: 20px;
   padding: 20px;
 }
 
@@ -208,26 +208,30 @@ section img#mountains_front {
 
 .profile-img {
   border-radius: 50%;
-  width: 150px; /* Adjust size as needed */
+  width: 400px; /* Adjust size as needed */
   margin-bottom: 20px;
   transition: transform 0.5s ease-out; /* Smooth scaling transition */
   opacity: 0; /* Start invisible */
   transform: scale(0.8); /* Start slightly scaled down */
+  margin-right: 20px; /* Adjust margin-right to create space between image and text */
+  float: left; /* Float the image to the left */
 }
 
-#about h1, #about h2 {
+#about h1, about h2 {
   margin: 10px 0;
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; 
   opacity: 0; /* Start invisible */
   transform: scale(0.8); /* Start slightly scaled down */
 }
+
 
 #about p {
   margin-bottom: 20px;
   font-size: 16px; /* Adjust size as needed */
   opacity: 0; /* Start invisible */
-  transform: translateY(20px); /* Start lower */
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+  /* transform: translateX(100px); */
+  transform: translateY(40px); /* Start lower */
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out; 
 }
 
 .social-links {
@@ -247,22 +251,142 @@ section img#mountains_front {
   font-size: 16px; /* Adjust font size as needed */
 }
 
-.btn {
+/* Download button */
+a.btn {
   text-decoration: none;
-  padding: 10px 20px;
-  background-color: #445566; /* Existing button color */
-  color: #ffffff;
-  border-radius: 20px;
-  opacity: 0; /* Start invisible */
-  transform: translateY(20px); /* Start lower */
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Animation properties */
+  display: inline-flex;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  border: none;
+  font-size: 20px;
+  font-family: inherit;
+  cursor: pointer;
+  color: #fff;
+  width: 9em;
+  height: 3em;
+  line-height: 2em;
+  text-align: center;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 300%;
+  border-radius: 30px;
+  z-index: 1;
+  /* display: inline-block;  Needed to allow width and height */
 }
+
+a.btn:hover {
+  animation: ani 8s linear infinite;
+  border: none;
+}
+
+@keyframes ani {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 400%;
+  }
+}
+
+a.btn:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
+  background: linear-gradient(90deg,#B0578D, #D988B9, #FACBEA, #FFE4D6);
+  background-size: 400%;
+  border-radius: 35px;
+  transition: 1s;
+}
+
+a.btn:hover::before {
+  filter: blur(20px);
+}
+
+a.btn:active {
+  background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+}
+
 
 #about .profile-img, #about #about-name, #about #about-profession, #about #about-text, #about #about-social, #about #about-btn {
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
   opacity: 0;
   transform: translateY(50px) scale(0.8);
 }
+
+/* social icons */
+
+.social-icon {
+  display: inline-block;
+  transition: all 0.2s ease-in;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+}
+
+.social-icon:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+.social-icon:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.25);
+  top: 100%;
+  width: 140%;
+  height: 180%;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.social-icon:after {
+  content: "";
+  position: absolute;
+  left: 55%;
+  transform: translateX(-50%) scaleY(1) scaleX(1.45);
+  top: 180%;
+  width: 160%;
+  height: 190%;
+  background-color: #92608A;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.5s 0.1s cubic-bezier(0.55, 0, 0.1, 1);
+  z-index: -1;
+}
+
+.social-icon:hover {
+  color: #ffffff;
+  border: 1px solid #92608A;
+}
+
+.social-icon:hover:before {
+  top: -35%;
+  background-color: #92608A;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
+.social-icon:hover:after {
+  top: -45%;
+  background-color: #92608A;
+  transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
+}
+
 
 #-------------------------------------------------------
 
