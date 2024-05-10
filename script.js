@@ -9,7 +9,6 @@ let top_part = document.getElementById('top_start')
 
 window.addEventListener('scroll', function(){
     let value = window.scrollY
-    //  stars.style.left = value * 1.25 + 'px';
      top_start.style.top = value * 0.5 + 'px';
      moon.style.top = value * 1.5 + 'px';
      mountains_behind.style.top = value * 0.5 + 'px';
@@ -43,6 +42,52 @@ window.addEventListener('scroll', function(){
    
 
 })
+
+const roles = ['Data Analyst', 'Machine Learning Engineer', 'Software Engineer'];
+let currentRole = 0;
+let charIndex = 0;
+let currentText = '';
+let isDeleting = false;
+const roleElement = document.getElementById('role');
+const typingSpeed = 100;
+const deletingSpeed = 50;
+const delayBetweenRoles = 1000; // Time to wait before starting to type next role
+
+function typeRole() {
+    if (isDeleting) {
+        // Remove char
+        currentText = roles[currentRole].substring(0, currentText.length - 1);
+    } else {
+        // Add char
+        currentText = roles[currentRole].substring(0, currentText.length + 1);
+    }
+
+    roleElement.textContent = currentText;
+
+    if (!isDeleting && currentText === roles[currentRole]) {
+        // If the full text is displayed and not deleting, start deleting after a pause
+        setTimeout(() => { isDeleting = true; }, delayBetweenRoles);
+    } else if (isDeleting && currentText === '') {
+        // If all text is deleted, move to the next role
+        isDeleting = false;
+        currentRole = (currentRole + 1) % roles.length;
+        setTimeout(typeRole, typingSpeed); // Wait before starting to type next role
+        return;
+    }
+
+    const delay = isDeleting ? deletingSpeed : typingSpeed;
+    setTimeout(typeRole, delay);
+}
+
+// Start the typing effect on load
+document.addEventListener('DOMContentLoaded', typeRole);
+
+
+
+
+
+
+
 
 window.addEventListener('scroll', function() {
     document.querySelectorAll('.progress-bar').forEach(function(bar) {
@@ -96,3 +141,13 @@ document.querySelectorAll('.project-card').forEach(card => {
         window.location = this.getAttribute('data-href'); // Ensure each card has a data-href attribute
     });
 });
+
+let container = document.querySelector('.card-container');
+
+function next() {
+    container.scrollLeft += 300; // Adjust the value to match the width of your cards plus the gap
+}
+
+function previous() {
+    container.scrollLeft -= 300; // Adjust the value to match the width of your cards plus the gap
+}

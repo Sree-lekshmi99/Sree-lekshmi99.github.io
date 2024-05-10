@@ -13,19 +13,24 @@ body{
     background: linear-gradient(#fff, #F2DBEB);
 
 }
+
 nav{
+  position: fixed; /* Fixed at the top */
   display: flex;
   height: 80px;
   width: 100%;
-  background: #1b1b1b;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px 0 100px;
+  padding: 5px 15px;
   flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 nav .logo{
   color: #fff;
-  font-size: 35px;
+  font-size: 15px;
   font-weight: 600;
 }
 nav ul{
@@ -39,9 +44,9 @@ nav ul li{
 nav ul li a{
   color: #f2f2f2;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 8px 15px;
+  padding: 5px 10px;
   border-radius: 5px;
   letter-spacing: 1px;
   transition: all 0.3s ease;
@@ -49,7 +54,7 @@ nav ul li a{
 nav ul li a.active,
 nav ul li a:hover{
   color: #111;
-  background: #fff;
+  background:  #F2DBEB;
 }
 nav .menu-btn i{
   color: #fff;
@@ -187,16 +192,26 @@ section img#mountains_front {
 
 #------------------------------------------------------------------------------------------------------------------------------------------
 
+/* Color Palette Variables */
+:root {
+  --deep-pink: #FF1493;
+  --medium-pink: #FF69B4;
+  --light-pink: #FFB6C1;
+  --dark-pink: #C71585;
+}
+
 #about {
   background-color: #F2DBEB; /* Existing background color */
-  color: #ffffff; /* May need adjustment if the background is light */
+   /* color: #ffffff;  */
   padding: 20px 0;
   text-align: center;
+  color: var(--medium-pink);
+  font-family: 'Playfair Display', serif;
 }
 
 #about .container {
   max-width: 700px;
-  margin: 20px;
+  margin: auto;
   padding: 20px;
 }
 
@@ -204,6 +219,18 @@ section img#mountains_front {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#about-name {
+  font-family: 'League Spartan', sans-serif; /* Applying League Spartan */
+  font-size: 36px;
+  color: var(--deep-pink);
+}
+
+#role {
+  color: var(--role-color); /* Applying the new color from the image */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #C71585;
 }
 
 .profile-img {
@@ -217,11 +244,12 @@ section img#mountains_front {
   float: left; /* Float the image to the left */
 }
 
-#about h1, about h2 {
+#about h1, h2 {
   margin: 10px 0;
   transition: transform 0.5s ease-out, opacity 0.5s ease-out; 
   opacity: 0; /* Start invisible */
   transform: scale(0.8); /* Start slightly scaled down */
+  color: var(--deep-pink);
 }
 
 
@@ -232,6 +260,7 @@ section img#mountains_front {
   /* transform: translateX(100px); */
   transform: translateY(40px); /* Start lower */
   transition: transform 0.5s ease-out, opacity 0.5s ease-out; 
+  text-align: left;
 }
 
 .social-links {
@@ -481,57 +510,79 @@ html, body {
 
 #------------------------------------
 
-.projects-section {
-  background-color: #f4f4f4; /* Replace with your preferred color */
-  padding: 40px;
+#projects {
   text-align: center;
+  margin-top: 50px; /* Adds some space at the top of the project section */
 }
 
-.project-wrapper {
+.card-container {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
+  overflow-x: auto; /* Allows horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling effect */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  gap: 50px;
 }
 
-.project-card {
-  background-color: #fff; /* Replace with your preferred color */
+.book {
+  position: relative;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  width: 300px; /* Adjust based on your design */
-  cursor: pointer;
+  width: 220px;
+  height: 300px;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 12px #000;
+  transform: preserve-3d;
+  perspective: 2000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
 }
 
-.project-card:hover {
-  transform: translateY(-10px); /* Creates the sliding effect */
-}
-
-.project-card img {
+.cover {
+  position: absolute;
+  top: 0;
+  background-color: lightgray;
   width: 100%;
-  height: auto;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 100%;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.5s;
+  transform-origin: left;
+  box-shadow: 1px 1px 12px #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.project-info {
-  padding: 20px;
+.book:hover .cover {
+  transform: rotateY(-80deg);
 }
 
-.project-info h3, .project-info p {
-  margin: 5px 0;
+p {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0; /* Removes default margin to help center the text properly */
 }
 
-.tags span {
-  background-color: #333; /* Replace with your preferred color */
-  color: #fff;
-  padding: 5px 10px;
-  margin-right: 5px;
-  border-radius: 5px;
-  display: inline-block;
+.navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  cursor: pointer;
+  font-size: 24px;
+  user-select: none;
+  color: #333; /* Ensures the arrows are visible on a light background */
+  background-color: rgba(255, 255, 255, 0.7); /* Light background for visibility */
+  padding: 10px; /* Adequate padding for clickable area */
+  border-radius: 50%; /* Circular shape */
 }
 
-.section-title {
-  margin-bottom: 20px;
-  color: #333; /* Replace with your preferred color */
+.navigation.left {
+  left: 10px; /* Positions the left arrow at the left edge of the container */
+}
+
+.navigation.right {
+  right: 10px; /* Positions the right arrow at the right edge of the container */
 }
