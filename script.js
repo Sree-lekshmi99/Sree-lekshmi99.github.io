@@ -37,7 +37,7 @@ window.addEventListener('scroll', function(){
 
 })
 
-const roles = ['Data Analyst', 'Machine Learning Engineer', 'Software Engineer'];
+const roles = ['Data Analyst Roles', 'Machine Learning', 'Software Developer'];
 let currentRole = 0;
 let charIndex = 0;
 let currentText = '';
@@ -49,10 +49,8 @@ const delayBetweenRoles = 1000; // Time to wait before starting to type next rol
 
 function typeRole() {
     if (isDeleting) {
-        // Remove char
         currentText = roles[currentRole].substring(0, currentText.length - 1);
-    } else {
-        // Add char
+    } else {0
         currentText = roles[currentRole].substring(0, currentText.length + 1);
     }
 
@@ -73,7 +71,7 @@ function typeRole() {
     setTimeout(typeRole, delay);
 }
 
-// Start the typing effect on load
+
 document.addEventListener('DOMContentLoaded', typeRole);
 
 
@@ -145,3 +143,5 @@ function next() {
 function previous() {
     container.scrollLeft -= 300; // Adjust the value to match the width of your cards plus the gap
 }
+
+
