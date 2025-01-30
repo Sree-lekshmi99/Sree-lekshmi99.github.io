@@ -41,5 +41,27 @@ backButton.addEventListener('click', () => {
   homeContent.style.display = 'block';
   educationContent.style.display = 'none';
 });
+// Update script.js
+const whyHireMeCard = document.getElementById('why-hire-me');
 
+// Handle both hover and touch
+whyHireMeCard.addEventListener('mouseenter', showButtons);
+whyHireMeCard.addEventListener('mouseleave', hideButtons);
+whyHireMeCard.addEventListener('click', function(e) {
+  if (window.innerWidth <= 768) { // Mobile toggle
+    if (this.classList.contains('active')) {
+      hideButtons();
+    } else {
+      showButtons();
+    }
+  }
+});
+
+function showButtons() {
+  whyHireMeCard.classList.add('active');
+}
+
+function hideButtons() {
+  whyHireMeCard.classList.remove('active');
+}
 
