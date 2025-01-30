@@ -1,189 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sree Lekshmi Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
- 
-
-
-
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">
-           Siri
-        </div>
-        <input type="checkbox" id="click">
-        <label for="click" class="menu-btn">
-        <i class="fas fa-bars"></i>
-        </label>
-        <ul>
-           <li><a class="active" href="#">Home</a></li>
-           <li><a href="#about">About</a></li>
-           <li><a href="#skill">Skills</a></li>
-           <li><a href="#Contact">Contact</a></li>
-        </ul>
-    </nav>
-    <section>
-            <!-- <img src="stars.png" id="stars"> -->
-            <img src="img/moon.png" id="moon">
-            <div class="centered-text">
-                Welcome to My Portfolio
-            </div>
-            <img src="img/layer4.png" id="mountains_behind">
-            <img src="img/layer2.png" id="mountains_front">
-            <img src="img/top.png" id="top_start">
-
-    </section>
-
-
-    <section id="about">
-        <div class="container">
-            <article class="about-profile">
-                <div id="particles-js"></div>
-                <img src="img/pp4.png" alt="Profile Picture" class="profile-img" id="profile-img">
-                <div class="text-content">
-                    <h1 id="about-name">Hi, I'm Sree Lekshmi</h1>
-                    <h2 id="about-profession">I am into <span id="role">Software Engineering</span></h2>
-                    <div class="social-links" id="about-social">
-                        <a href="https://www.facebook.com/sreelekshmi.prasannan/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/yourusername" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/sreelekshmiprasannan1999/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/Sree-lekshmi99" class="social-icon"><i class="fab fa-github"></i></a>
-                    </div>
-                    <a href="SreeLekshmi_resume_P.pdf" download="" class="btn" id="about-btn">Download CV</a>
+  <!-- Home Section -->
+    <section id="home">
+        <div class="overlay"></div>
+        <div class="home-content">
+        <h1>SREE LEKHMI PRASANNAN</h1>
+        <p class="typewriter">I am a <span id="typewriter"></span></p>
+        <div class="social-links">
+            <!-- Instagram -->
+                <!-- Instagram -->
+            <div class="social-button">
+                <button class="relative w-16 h-16 rounded-full group">
+                <div class="floater w-full h-full absolute top-0 left-0 bg-violet-400 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
+                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-violet-400 rounded-full">
+                    <i class="fab fa-instagram text-white text-xl group-hover:text-[#171543] duration-300"></i>
                 </div>
-            </article>
-        </div>
-    </section>
-
-
-
-    <section id = "skill">
-        <div class="container">
-            <div class="text-container" style="width: 33%; float: left;">
-                <p>With a fervent passion for machine learning, I am dedicated to pushing boundaries, exploring new methodologies, and uncovering insights that drive impactful solutions.</p>
+                </button>
             </div>
-            <div class="chart-container" style="width: 33%; float: left;">
-                <canvas id="doughnutChart"></canvas>
-            </div>
-            <div class="skills-container" style="width: 33%; float: left;">
-                <!-- List of skills -->
-                <div class="skill">
-                    <label>Data Visualizations</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="80%">80%</div>
-                    </div>
-                    <label>Machine Learning Algorithms</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="85%">85%</div>
-                    </div>
-                    <label>Statistical Analysis</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="70%">70%</div>
-                    </div>
-                    <label>Python</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="90%">90%</div>
-                    </div>
-                    <label>R</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="60%">60%</div>
-                    </div>
-                    <label>Data Manipulations</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="75%">75%</div>
-                    </div>
-                    <label>SQL</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="80%">80%</div>
-                    </div>
-                    <label>Git</label>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 0%;" data-max="55%">55%</div>
-                    </div>
+
+            <!-- GitHub -->
+            <div class="social-button">
+            <button class="relative w-25 h-25 rounded-full group">
+                <div class="floater w-full h-full absolute top-0 left-0 bg-black rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
+                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-black rounded-full">
+                <i class="fab fa-github text-white group-hover:text-[#171543] duration-300"></i>
                 </div>
+            </button>
+            </div>
 
+            <!-- LinkedIn -->
+            <div class="social-button">
+            <button class="relative w-25 h-25 rounded-full group">
+                <div class="floater w-full h-full absolute top-0 left-0 bg-blue-500 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
+                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-blue-500 rounded-full">
+                <i class="fab fa-linkedin text-white group-hover:text-[#171543] duration-300"></i>
+                </div>
+            </button>
+            </div>
+
+            <!-- Email -->
+            <div class="social-button">
+            <button class="relative w-25 h-25 rounded-full group">
+                <div class="floater w-full h-full absolute top-0 left-0 bg-red-400 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
+                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-red-400 rounded-full">
+                <i class="fas fa-envelope text-white group-hover:text-[#171543] duration-300"></i>
+                </div>
+            </button>
             </div>
         </div>
-    </section>
-
-    <section id="projects">
-        <h1>Projects</h1>
-        <div class="navigation left" onclick="previous()">&#10094;</div> 
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 1</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
+        <div class="one-div" id="why-hire-me">
+            <div class="text">WHY HIRE ME?</div>
+            <div class="buttons-container">
+              
+              <button class="card-button" id="btn-education">Education</button>
+              <button class="card-button">Skills</button>
+              <button class="card-button">Work</button>
+              <button class="card-button">Projects</button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Education Content (Hidden Initially) -->
+        <div class="education-content" style="display: none;">
+            <button class="card-button back-btn">Back</button>
+            <div class="edu-card">
+                <h2>Education</h2>
+                <span class="highschool">
+                    You can call me Sree. I recently graduated from SUNY Buffalo with a Master’s in Data Science, where I learned machine learning, deep learning, time series analysis, and statistical modeling. Before that, I earned my Bachelor’s in Information Technology, gaining expertise in databases, algorithms, and programming.
+                </span>
+            </div>
+            <div class="wrap">
+            <div class="schools">
+                <div class="up-arrow school-item" id="school1">
+                <h5>Bachelors in IT </h5>
+                <span>&nbsp;</span>
+                </div>
+                <div class="up-arrow school-item" id="school2">
+                <h5>Masters in Data Science(SUNY)</h5>
+                <span>&nbsp;</span>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 2</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
-                </div>
+            <hr />
+            <div class="years">
+                <ul class="middot">
+                <li>&#183;</li>
+                <li>&#183;</li>
+                <li>&#183;</li>
+                <li>&#183;</li>
+                </ul>
+                <ul class="year-list">
+                <li>2018</li>
+                <li>2020</li>
+                <li>2022</li>
+                <li>2024</li>
+                </ul>
             </div>
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 3</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 4</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 5</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 6</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="book">
-                    <p>Hello, this is Project 7</p>
-                    <div class="cover">
-                        <p>Hover Me</p>
-                    </div>
-                </div>
             </div>
         </div>
-        <div class="navigation" onclick="next()">&#10095;</div> <!-- Right arrow -->
-    </section>
+        </div>
+        
 
-
-
+        
     
+    </section>
+
+
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
