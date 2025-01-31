@@ -27,21 +27,6 @@ function typeWriter() {
 
 typeWriter();
 // Update script.js
-const educationButton = document.getElementById('btn-education');
-const homeContent = document.querySelector('.home-content');
-const educationContent = document.querySelector('.education-content');
-const backButton = document.querySelector('.back-btn');
-
-educationButton.addEventListener('click', () => {
-  homeContent.style.display = 'none';
-  educationContent.style.display = 'block';
-});
-
-backButton.addEventListener('click', () => {
-  homeContent.style.display = 'block';
-  educationContent.style.display = 'none';
-});
-// Update script.js
 const whyHireMeCard = document.getElementById('why-hire-me');
 
 // Handle both hover and touch
@@ -65,25 +50,29 @@ function hideButtons() {
   whyHireMeCard.classList.remove('active');
 }
 
-// Replace the existing jQuery animation with
-document.addEventListener('DOMContentLoaded', function() {
-  const isMobile = window.matchMedia("(max-width: 768px)").matches;
-  
-  if (!isMobile) {
-    // Desktop animation
-    $('#school1').animate({ borderBottomWidth: '100px' }, 1000);
-    $('#school2').animate({ borderBottomWidth: '150px' }, 1000);
-  } else {
-    // Mobile static sizes
-    $('#school1').css({
-      'border-left-width': '60px',
-      'border-right-width': '60px',
-      'border-bottom-width': '40px'
+
+
+
+// script.js
+// Remove education content toggle and update button handler
+document.getElementById('btn-education').addEventListener('click', () => {
+  document.getElementById('experience').scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+
+// Update experience animation
+$(document).ready(function() {
+  $(window).on('scroll', function() {
+    $('.experience-content').each(function() {
+      const elementTop = $(this).offset().top;
+      const elementBottom = elementTop + $(this).outerHeight();
+      const viewportTop = $(window).scrollTop();
+      const viewportBottom = viewportTop + $(window).height();
+
+      if (elementBottom > viewportTop && elementTop < viewportBottom) {
+        $(this).addClass('visible');
+      }
     });
-    $('#school2').css({
-      'border-left-width': '40px',
-      'border-right-width': '40px',
-      'border-bottom-width': '60px'
-    });
-  }
+  }).scroll();
 });

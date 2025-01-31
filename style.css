@@ -203,195 +203,111 @@ h3 {
   }
 }
 
-/* Years Section */
-/* .years {
-  text-align: justify;
-} */
 
-.years .middot {
+
+/*##### EXPERIENCE SECTION #####*/
+
+/* Update the experience section in style.css */
+.split-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
   margin: 0 auto;
-  font-size: 58px;
-  color: #4b5859;
-  line-height: 20px;
-}
-
-.years .year-list {
-  margin-top: -18px;
-}
-
-.years * {
-  list-style-position: outside;
-  padding: 0;
-  display: inline;
-}
-
-.years span {
-  display: inline-block;
+  padding: 20px;
   position: relative;
-  width: 100%;
-  height: 0;
 }
 
-
-/* Education Section Styles */
-/* Education Section - Refined */
-.education-content {
+.split-container::after {
+  content: '';
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 800px;
-  z-index: 2;
-  padding: 2rem;
-  background: rgba(31, 36, 38, 0.95);
-  border-radius: 20px;
-  box-shadow: 0 0 50px rgba(180, 218, 215, 0.2);
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #b4dad7;
+  transform: translateX(-50%);
 }
 
-/* School Triangles */
-.schools {
+.education-column, .experience-column {
+  padding: 30px;
+}
+
+.timeline-list {
+  list-style: none;
+  padding: 0;
   position: relative;
-  height: 150px;
-  margin: 2rem 0;
 }
 
-#school1, #school2 {
+.timeline-list li {
+  position: relative;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #2a2f31;
+  border-radius: 8px;
+  border-left: 4px solid #2196a7;
+}
+
+.education-column li {
+  margin-right: 40px;
+}
+
+.experience-column li {
+  margin-left: 40px;
+}
+
+.timeline-list li::before {
+  content: '';
   position: absolute;
-  bottom: 0;
-  z-index: 1;
+  width: 20px;
+  height: 20px;
+  background: #1f2426;
+  border: 4px solid #b4dad7;
+  border-radius: 50%;
+  top: 24px;
 }
 
-#school1 {
-  left: 15%;
-  border-left: 200px solid transparent;
-  border-right: 200px solid transparent;
-  border-bottom: 100.5px solid #2196a7;
+.education-column li::before {
+  right: -52px;
 }
 
-#school2 {
-  left: 65%;
-  /* transform: translateX(0%); */
-  border-left: 100px solid transparent;
-  border-right: 90px solid transparent;
-  border-bottom: 150px solid #b4dad7;
+.experience-column li::before {
+  left: -52px;
 }
 
-.school-item h5 {
-  position: absolute;
-  bottom: -25px;
-  white-space: nowrap;
-  color: #b4dad7;
-  font-size: em;
-}
-
-/* Timeline Years */
-
-
-.middot {
-  display: flex;
-  justify-content: space-between;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.middot li {
-  font-size: 2rem;
-  color: #4b5859;
-  line-height: 0.5;
-}
-
-.year-list {
-  display: flex;
-  justify-content: space-between;
-  max-width: 600px;
-  margin: -1rem auto 0;
-  padding: 0 50px;
-}
-
-
-
-.year-list li {
-  color: #b4dad7;
-  font-size: 1.1rem;
-  width: 80px;
-  text-align: center;
-}
-
-/* Back Button */
-.back-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  margin: 0;
-  z-index: 3;
-}
-
-/* Highschool Text */
-.highschool {
-  display: block;
-  margin: 1rem 0;
-  color: #b4dad7 !important;
-  font-size: 1.2rem;
-}
-
-
-/* Add this at the end of style.css */
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .schools {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto !important;
-    gap: 40px;
-    margin: 1rem 0;
+  .split-container {
+    grid-template-columns: 1fr;
+    padding: 10px;
   }
 
-  #school1, #school2 {
-    position: relative;
-    left: auto !important;
-    margin: 0;
-    transform: none !important;
+  .split-container::after {
+    display: none;
   }
 
-  #school1 {
-    border-left: 80px solid transparent;
-    border-right: 80px solid transparent;
-    border-bottom: 60px solid #2196a7;
+  .education-column, .experience-column {
+    padding: 15px;
   }
 
-  #school2 {
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-    border-bottom: 80px solid #b4dad7;
+  .education-column li,
+  .experience-column li {
+    margin: 0 0 30px 0 !important;
   }
 
-  .school-item h5 {
-    bottom: -50px !important;
-    width: 150px !important;
-    text-align: center;
-    white-space: normal;
-    font-size: 0.9rem;
-    padding: 5px;
+  .timeline-list li::before {
+    display: none;
   }
+}
 
-  /* Fix timeline years */
-  .year-list {
-    display: grid !important;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    padding: 0 10px !important;
-    margin-top: 2rem !important;
-  }
+/* Keep existing animation styles */
+.experience-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
 
-  .year-list li {
-    width: 100% !important;
-    text-align: center;
-    font-size: 1rem;
-  }
-
-  .middot {
-    display: none !important;
-  }
+.experience-content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
