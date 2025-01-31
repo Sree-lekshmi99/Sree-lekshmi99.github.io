@@ -65,3 +65,25 @@ function hideButtons() {
   whyHireMeCard.classList.remove('active');
 }
 
+// Replace the existing jQuery animation with
+document.addEventListener('DOMContentLoaded', function() {
+  const isMobile = window.matchMedia("(max-width: 768px)").matches;
+  
+  if (!isMobile) {
+    // Desktop animation
+    $('#school1').animate({ borderBottomWidth: '100px' }, 1000);
+    $('#school2').animate({ borderBottomWidth: '150px' }, 1000);
+  } else {
+    // Mobile static sizes
+    $('#school1').css({
+      'border-left-width': '60px',
+      'border-right-width': '60px',
+      'border-bottom-width': '40px'
+    });
+    $('#school2').css({
+      'border-left-width': '40px',
+      'border-right-width': '40px',
+      'border-bottom-width': '60px'
+    });
+  }
+});

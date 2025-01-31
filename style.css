@@ -92,8 +92,8 @@ h3 {
 /* Why Hire Me Card */
 .one-div {
   position: relative;
-  height: 250px;
-  width: 200px;
+  height: 280px;
+  width: 280px;
   /* background-color: rgb(15, 15, 15); */
   /* background: linear-gradient(135deg, #1B4965, #5A7D5A, #FFD166); */
   /* background: linear-gradient(135deg, #1B4965, #5A7D5A 50%, #F4EAE0); */
@@ -334,4 +334,109 @@ h3 {
   margin: 1rem 0;
   color: #b4dad7 !important;
   font-size: 1.2rem;
+}
+
+/* Add this at the end of style.css */
+@media (max-width: 768px) {
+  /* Education Content */
+  .education-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  /* School Triangles */
+  .schools {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  #school1, #school2 {
+    position: relative;
+    left: auto !important;
+    margin: 1rem 0;
+  }
+
+  #school1 {
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 60px solid #2196a7;
+  }
+
+  #school2 {
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 80px solid #b4dad7;
+  }
+
+  /* Timeline */
+  .year-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .year-list li {
+    flex: 0 0 40%;
+    text-align: center;
+  }
+
+  /* Text Adjustments */
+  .highschool {
+    font-size: 1rem !important;
+  }
+
+  .school-item h5 {
+    white-space: normal;
+    width: 120px;
+    text-align: center;
+    bottom: -40px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-content {
+    width: 95%;
+    padding: 0.5rem;
+  }
+
+  #school1 {
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 40px solid #2196a7;
+  }
+
+  #school2 {
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 60px solid #b4dad7;
+  }
+
+  .year-list li {
+    flex: 0 0 100%;
+  }
+}
+
+.education-content {
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.school-item {
+  display: flex;
+  justify-content: center;
+}
+
+.schools {
+  position: relative;
+  min-height: 150px;
 }
