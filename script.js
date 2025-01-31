@@ -54,13 +54,24 @@ function hideButtons() {
 
 
 // script.js
-// Remove education content toggle and update button handler
-document.getElementById('btn-education').addEventListener('click', () => {
-  document.getElementById('experience').scrollIntoView({
-    behavior: 'smooth'
-  });
+// Update the education button handler in script.js
+document.getElementById('btn-education').addEventListener('click', function(e) {
+  e.stopPropagation(); // Prevent event bubbling to parent elements
+  
+  // If on mobile, ensure card stays open during scroll
+  if (window.innerWidth <= 768) {
+    whyHireMeCard.classList.add('active');
+    setTimeout(() => {
+      document.getElementById('experience').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 300); // Match the transition duration
+  } else {
+    document.getElementById('experience').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
 });
-
 // Update experience animation
 $(document).ready(function() {
   $(window).on('scroll', function() {
