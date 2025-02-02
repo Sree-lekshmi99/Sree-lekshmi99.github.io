@@ -246,7 +246,6 @@ body, html {
   background-color: var(--mako); /* Dark background */
   color: #E8F9FF; /* Primary text color */
   font-family: "Bitter", Helvetica;
-  scroll-behavior: smooth;
 }
 
 /* Typography */
@@ -280,7 +279,7 @@ h3 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  position: relative;
+  
 }
 
 .overlay {
