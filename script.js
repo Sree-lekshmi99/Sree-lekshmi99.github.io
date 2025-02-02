@@ -89,20 +89,17 @@ document.getElementById('btn-edu-exp').addEventListener('click', function(e) {
   }
 });
 
-// Loader dismissal with minimum 3 second display
-window.addEventListener('load', function() {
-  const loader = document.querySelector('.loader');
-  const minimumDisplayTime = 3000; // 3 seconds
-  
-  // Get current time
-  const loadStartTime = Date.now();
+// Loader dismissal with guaranteed minimum 3 second display
+const loader = document.querySelector('.loader');
+const minimumDisplayTime = 3000; // 3 seconds
+let loadStartTime = Date.now(); // Capture time when script runs
 
-  // Calculate remaining time to reach 3 seconds
+window.addEventListener('load', function() {
   const elapsed = Date.now() - loadStartTime;
   const remaining = Math.max(minimumDisplayTime - elapsed, 0);
 
   setTimeout(() => {
-      loader.style.opacity = '0';
-      setTimeout(() => loader.remove(), 1000); // Match CSS transition time
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 1000);
   }, remaining);
 });
