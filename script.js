@@ -53,42 +53,41 @@ function hideButtons() {
 
 
 
-// script.js
-// Update the education button handler in script.js
-document.getElementById('btn-education').addEventListener('click', function(e) {
-  e.stopPropagation(); // Prevent event bubbling to parent elements
+// About 
+document.getElementById('btn-about').addEventListener('click', function(e) {
+  e.stopPropagation();
   
-  // If on mobile, ensure card stays open during scroll
   if (window.innerWidth <= 768) {
     whyHireMeCard.classList.add('active');
     setTimeout(() => {
-      document.getElementById('experience').scrollIntoView({
+      document.getElementById('about').scrollIntoView({
         behavior: 'smooth'
       });
-    }, 300); // Match the transition duration
+    }, 300);
   } else {
-    document.getElementById('experience').scrollIntoView({
+    document.getElementById('about').scrollIntoView({
       behavior: 'smooth'
     });
   }
 });
-// Update experience animation
-$(document).ready(function() {
-  $(window).on('scroll', function() {
-    $('.experience-content').each(function() {
-      const elementTop = $(this).offset().top;
-      const elementBottom = elementTop + $(this).outerHeight();
-      const viewportTop = $(window).scrollTop();
-      const viewportBottom = viewportTop + $(window).height();
 
-      if (elementBottom > viewportTop && elementTop < viewportBottom) {
-        $(this).addClass('visible');
-      }
+//Edu/Exp
+document.getElementById('btn-edu-exp').addEventListener('click', function(e) {
+  e.stopPropagation();
+  
+  if (window.innerWidth <= 768) {
+    whyHireMeCard.classList.add('active');
+    setTimeout(() => {
+      document.getElementById('edu-exp').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 300);
+  } else {
+    document.getElementById('edu-exp').scrollIntoView({
+      behavior: 'smooth'
     });
-  }).scroll();
+  }
 });
-
-
 
 // Loader dismissal with minimum 3 second display
 window.addEventListener('load', function() {

@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Portfolio</title>
+  <title>Sree Lekshmi Prasannan</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
-  <!-- Add this right after opening <body> tag -->
+  <!-- Loader -->
   <div class="loader">
     <div class="canva">
       <div class="container">
@@ -52,8 +52,8 @@
     <section id="home">
         <div class="overlay"></div>
         <div class="home-content">
-        <h1>SREE LEKHMI PRASANNAN</h1>
-        <p class="typewriter">I am a <span id="typewriter"></span></p>
+        <h1>SREE LEKsHMI PRASANNAN</h1>
+        <h6 class="typewriter">I am a <span id="typewriter"></span></h6>
         <div class="social-links">
         <!-- Replace the existing social-links div with this -->
         <ul class="social-icons">
@@ -67,8 +67,8 @@
             <div class="text">WHY HIRE ME?</div>
             <div class="buttons-container">
               
-              <button class="card-button" id="btn-education">About</button>
-              <button class="card-button">Edu-Exp</button>
+              <button class="card-button" id="btn-about">About</button>
+              <button class="card-button" id ="btn-edu-exp">Edu-Exp</button>
               <button class="card-button">Skills</button>
               <button class="card-button">Projects</button>
               <button class="card-button">Contact Me</button>
@@ -79,56 +79,95 @@
     </section>
 
 
- <!-- EXPERIENCE -->
-    <section class="experience" id="experience">
-      <div class="content">
-        
-        <div class="split-container">
-          <!-- Education Column -->
-          <div class="education-column">
-            <h2>Education</h2>
-            <ul class="timeline-list">
-              <li class="experience-content">
-                <h3>MSc Data Science</h3>
-                <div class="experience-time">SUNY Buffalo (Jan 2023-May 2024)</div>
-                <p>Machine Learning, Deep Learning, Time Series Analysis</p>
-              </li>
-              <li class="experience-content">
-                <h3>BSc Information Technology</h3>
-                <div class="experience-time">University Name (2018-2022)</div>
-                <p>Data Structure and Algorithms, System Design, Artificial Intelligence</p>
-              </li>
-            </ul>
+
+
+    <!-- Update About Section -->
+    <section id="about">
+      <div class="about-header">
+        <h2>About ME</h2>
+        <p class="tagline">Hey, I’m Sree Lekshmi! I have a master’s in Data Science from SUNY Buffalo and a background in Information Technology. I’ve worked across machine learning, analytics, and web development, and I’m currently looking for roles as a Software Engineer, Data Analyst, Machine Learning Engineer, Data Engineer, Business Analyst, or Data Scientist. But let’s be real—this job market is absolutely cooked.
+
+          Apart from that, I love boba, get lost in novels, and find both peace and chaos in video games. 🚀</p>
+          <h4>Below is my education and experience, which sum up what I’ve been up to for the past 7 years.</h>
+        <div class="horizontal-line"></div>
+      </div>
+     
+    </section>
+
+    <!-- Exp-EDU -->
+    <section id = "edu-exp">
+      <div class="about-header">
+        <h2>Education & Experience</h2>
+      </div>
+      <div class="timeline-container">
+        <div class="timeline">
+          <div class="timeline-item right">
+            <div class="timeline-icon">
+              <img src ="img/programmer.png" alt="experience">
+            </div>
+            <div class="timeline-content">
+              <h3>Machine Learning Engineer</h3>
+              <h4>Community Schools Of Arts Foundation</h4>
+              </p>June 2024- Present</p>
+              <p>Architecting XGBoost & SVM models to forecast revenue and predict sponsors, aiming for a 30% contributions increase for K-12. Built an ETL pipeline with Scrapy, PostgreSQL, and Snowflake, leveraging Salesforce CRM data for ML-driven insights.</p>
+            </div>
+          </div>   
+          <!-- Education Timeline Items -->
+          <div class="timeline-item left">
+            <div class="timeline-icon">
+              <img src="img/mortarboard.png" alt="education">
+            </div>
+            <div class="timeline-content">
+              <h3>MS Data Science</h3>
+              </p>Jan 2023 - May 2024</p>
+              <h4>State University Of New York at Buffalo</h4>
+              <p>Machine Learning, Deep Learning, Time Series Analysis</p>
+
+                
+            </div>
           </div>
 
-          <!-- Experience Column -->
-          <div class="experience-column">
-            <h2>Experience</h2>
-            <ul class="timeline-list">
-              <li class="experience-content">
-                <h3>Machine Learning Engineer</h3>
-                <div class="experience-time">Community Schools Of Arts Foundation<br>June 2024- Present</div>
-                <p>Architecting XGBoost & SVM models to forecast revenue and predict sponsors, aiming for a 30% contributions increase for K-12 schools. Built an ETL pipeline with Scrapy, PostgreSQL, and Snowflake, leveraging Salesforce CRM data for ML-driven insights.</p>
-              </li>
-              <li class="experience-content">
-                <h3>Research Aide Analyst</h3>
-                <div class="experience-time">University at Buffalo-SUNY<br>Oct 2023- June 2024</div>
-                <p>Researched student engagement trends using forecasting models and A/B testing, improving performance by 30% with ML techniques. Built PowerBI dashboards with DAX and KPIs to enhance program strategies and student outreach</p>
-              </li>
-              <li class="experience-content">
-                <h3>Software Developer Intern</h3>
-                <div class="experience-time">Bhilai Steel Plant <br>July 2021- Dec 2021</div>
-                <p>Developed an E-Gate Pass System with FBProphet to forecast peak traffic, optimizing vendor pickups. Built a Flutter-based order management app with SQLCipher, integrated QR-based entry, and improved verification speed using CNN.</p>
-              </li>
-              <li class="experience-content">
-                <h3>Jr. Programmer</h3>
-                <div class="experience-time">CodeSpeedy <br> Mar2021- June 2021</div>
-                <p>Enhanced a job portal with Node.js and React, implementing Okta for secure role-based access. Optimized job search latency by 30% using DynamoDB and Elasticsearch while ensuring high availability with AWS S3.</p>
-              </li>
-            </ul>
+    
+        <div class="timeline">
+          <!-- Education Timeline Items -->
+          <div class="timeline-item left">
+            <div class="timeline-icon">
+              <img src="img/mortarboard.png" alt="education">
+            </div>
+            <div class="timeline-content">
+              <h3>B.Tech Information Technology</h3>
+              </p>2018-2022</p>
+              <h4>Shri Shankaracharya Group Of Institutions</h4>
+              <p>Data Structure and Algorithms, System Design, Artificial Intelligence</p>   
+            </div>
           </div>
+
+
+          <div class="timeline-item right">
+            <div class="timeline-icon">
+              <img src ="img/programmer.png" alt="experience">
+            </div>
+            <div class="timeline-content">
+              <h3>Software Developer Intern</h3>
+              <h4>Bhilai Steel Plant</h4>
+              </p>March 2021 - June 2021</p>
+              <p>Enhanced a job portal with Node.js and React, implementing Okta for secure role-based access.<br> Optimized job search latency by 30% using DynamoDB and Elasticsearch while ensuring high availability with AWS S3.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-icon">
+              <img src ="img/programmer.png" alt="experience">
+            </div>
+            <div class="timeline-content">
+              <h3>Jr. Programmer </h3>
+              <h4>CodeSpeedy</h4>
+              </p>March 2021 - June 2021</p>
+              <p>Enhanced a job portal with Node.js and React, implementing Okta for secure role-based access.<br> Optimized job search latency by 30% using DynamoDB and Elasticsearch while ensuring high availability with AWS S3.</p>
+            </div>
+          </div>
+        
         </div>
-      </div>
     </section>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

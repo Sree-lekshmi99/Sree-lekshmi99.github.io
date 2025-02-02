@@ -2,10 +2,11 @@
 
 :root {
   --paynes-gray: #465e7bff;
-  --ash-gray: #acc3beff;
+  --ash-gray: #acc3be;
   --wenge: #6a5c6cff;
   --ash-gray-2: #9eb1aaff;
   --eggplant: #2d3241;
+  --mako : #263140;
 }
 
 /* ================== */
@@ -242,9 +243,10 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: var(--eggplant); /* Dark background */
+  background-color: var(--mako); /* Dark background */
   color: #E8F9FF; /* Primary text color */
   font-family: "Bitter", Helvetica;
+  scroll-behavior: smooth;
 }
 
 /* Typography */
@@ -516,113 +518,140 @@ h3 {
   }
 }
 
-/*##### EXPERIENCE SECTION #####*/
 
-/* Update the experience section in style.css */
-.split-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+
+
+
+/* About Section */
+#about {
+  padding: 80px 20px;
+  background: var(--mako);
   position: relative;
 }
 
-.split-container::after {
+.about-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.about-header h2 {
+  color: var(--ash-gray);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.tagline {
+  color: var(--ash-gray-2);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.horizontal-line {
+  width: 200px;
+  height: 2px;
+  background: var(--ash-gray);
+  margin: 0 auto;
+}
+
+.timeline-container {
+  position: relative;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+}
+
+.timeline::before {
   content: '';
   position: absolute;
   left: 50%;
   top: 0;
   width: 4px;
   height: 100%;
-  background: #b4dad7;
+  background: var(--ash-gray);
   transform: translateX(-50%);
+  margin-left: -2px;
 }
 
-.education-column, .experience-column {
-  padding: 30px;
-}
-
-.timeline-list {
-  list-style: none;
-  padding: 0;
+.timeline-item {
+  padding: 20px 40px;
+  width: 50%;
   position: relative;
 }
 
-.timeline-list li {
-  position: relative;
-  margin-bottom: 40px;
-  padding: 20px;
-  background: #2a2f31;
-  border-radius: 8px;
-  border-left: 4px solid #2196a7;
+.timeline-item.left {
+  left: 0;
+  text-align: right;
 }
 
-.education-column li {
-  margin-right: 40px;
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
 }
 
-.experience-column li {
-  margin-left: 40px;
-}
-
-.timeline-list li::before {
-  content: '';
+.timeline-icon {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  background: #1f2426;
-  border: 4px solid #b4dad7;
+  width: 60px;
+  height: 60px;
+  background: var(--eggplant);
+  border: 3px solid var(--ash-gray);
   border-radius: 50%;
-  top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
 
-.education-column li::before {
-  right: -52px;
+.timeline-item.left .timeline-icon {
+  right: -30px;
 }
 
-.experience-column li::before {
-  left: -52px;
+.timeline-item.right .timeline-icon {
+  left: -30px;
+}
+
+.timeline-icon img {
+  width: 60%;
+  filter: invert(85%) sepia(10%) saturate(300%) hue-rotate(120deg);
+}
+
+.timeline-content {
+  background: var(--mako);
+  padding: 20px;
+  border-radius: 8px;
+  border: 2px solid var(--ash-gray);
+  position: relative;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .split-container {
-    grid-template-columns: 1fr;
-    padding: 10px;
+  .timeline::before {
+    left: 20px;
   }
 
-  .split-container::after {
-    display: none;
+  .timeline-item {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+    left: 0 !important;
+    text-align: left !important;
   }
 
-  .education-column, .experience-column {
-    padding: 15px;
-  }
-
-  .education-column li,
-  .experience-column li {
-    margin: 0 0 30px 0 !important;
-  }
-
-  .timeline-list li::before {
-    display: none;
+  .timeline-item.left .timeline-icon,
+  .timeline-item.right .timeline-icon {
+    left: 20px;
+    right: auto;
   }
 }
 
 
-/* Keep existing animation styles */
-.experience-content {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-}
 
-.experience-content.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 
 
