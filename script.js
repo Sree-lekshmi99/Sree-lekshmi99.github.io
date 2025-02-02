@@ -11,12 +11,12 @@ function typeWriter() {
     // Typing
     typewriterElement.textContent += currentRole.charAt(charIndex);
     charIndex++;
-    setTimeout(typeWriter, 100); // Typing speed
+    setTimeout(typeWriter, 50); // Typing speed
   } else if (isDeleting && charIndex > 0) {
     // Deleting
     typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
     charIndex--;
-    setTimeout(typeWriter, 50); // Deleting speed
+    setTimeout(typeWriter, 100); // Deleting speed
   } else {
     // Switch to next role
     isDeleting = !isDeleting;
@@ -86,4 +86,24 @@ $(document).ready(function() {
       }
     });
   }).scroll();
+});
+
+
+
+// Loader dismissal with minimum 3 second display
+window.addEventListener('load', function() {
+  const loader = document.querySelector('.loader');
+  const minimumDisplayTime = 3000; // 3 seconds
+  
+  // Get current time
+  const loadStartTime = Date.now();
+
+  // Calculate remaining time to reach 3 seconds
+  const elapsed = Date.now() - loadStartTime;
+  const remaining = Math.max(minimumDisplayTime - elapsed, 0);
+
+  setTimeout(() => {
+      loader.style.opacity = '0';
+      setTimeout(() => loader.remove(), 1000); // Match CSS transition time
+  }, remaining);
 });

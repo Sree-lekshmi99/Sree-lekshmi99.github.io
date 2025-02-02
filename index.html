@@ -10,6 +10,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 <body>
+  <!-- Add this right after opening <body> tag -->
+  <div class="loader">
+    <div class="canva">
+      <div class="container">
+        <div class="cauldronBody"></div>
+        <div class="cauldronLid">
+          <div class="innerLid"></div>
+          <div class="outerLid"></div>
+        </div>
+        <div class="ladle"></div>
+        <div class="bubbles">
+          <div class="bubbleContainer">
+            <div class="bubbleBound" id="bubbleBound1">
+              <div class="bubble" id="bubble1">
+                <div class="opaqueBackground"></div>
+              </div>
+            </div>
+            <div class="bubbleBound" id="bubbleBound2">
+              <div class="bubble" id="bubble2">
+                <div class="opaqueBackground"></div>
+              </div>
+            </div>
+            <div class="bubbleBound" id="bubbleBound3">
+              <div class="bubble" id="bubble3">
+                <div class="opaqueBackground"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cauldronLegs">
+          <div class="leg" id="leg1"></div>
+          <div class="leg" id="leg2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <div class="grain-container"></div>
   <!-- Home Section -->
     <section id="home">
         <div class="overlay"></div>
@@ -17,54 +55,21 @@
         <h1>SREE LEKHMI PRASANNAN</h1>
         <p class="typewriter">I am a <span id="typewriter"></span></p>
         <div class="social-links">
-            <!-- Instagram -->
-                <!-- Instagram -->
-            <div class="social-button">
-                <button class="relative w-16 h-16 rounded-full group">
-                <div class="floater w-full h-full absolute top-0 left-0 bg-violet-400 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
-                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-violet-400 rounded-full">
-                    <i class="fab fa-instagram text-white text-xl group-hover:text-[#171543] duration-300"></i>
-                </div>
-                </button>
-            </div>
-
-            <!-- GitHub -->
-            <div class="social-button">
-            <button class="relative w-25 h-25 rounded-full group">
-                <div class="floater w-full h-full absolute top-0 left-0 bg-black rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
-                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-black rounded-full">
-                <i class="fab fa-github text-white group-hover:text-[#171543] duration-300"></i>
-                </div>
-            </button>
-            </div>
-
-            <!-- LinkedIn -->
-            <div class="social-button">
-            <button class="relative w-25 h-25 rounded-full group">
-                <div class="floater w-full h-full absolute top-0 left-0 bg-blue-500 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
-                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-blue-500 rounded-full">
-                <i class="fab fa-linkedin text-white group-hover:text-[#171543] duration-300"></i>
-                </div>
-            </button>
-            </div>
-
-            <!-- Email -->
-            <div class="social-button">
-            <button class="relative w-25 h-25 rounded-full group">
-                <div class="floater w-full h-full absolute top-0 left-0 bg-red-400 rounded-full duration-300 group-hover:-top-8 group-hover:shadow-2xl"></div>
-                <div class="icon relative z-10 w-full h-full flex items-center justify-center border-2 border-red-400 rounded-full">
-                <i class="fas fa-envelope text-white group-hover:text-[#171543] duration-300"></i>
-                </div>
-            </button>
-            </div>
+        <!-- Replace the existing social-links div with this -->
+        <ul class="social-icons">
+          <li><a href="#"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
+        </ul>
         </div>
         <div class="one-div" id="why-hire-me">
             <div class="text">WHY HIRE ME?</div>
             <div class="buttons-container">
               
-              <button class="card-button" id="btn-education">Education</button>
+              <button class="card-button" id="btn-education">About</button>
+              <button class="card-button">Edu-Exp</button>
               <button class="card-button">Skills</button>
-              <button class="card-button">Work</button>
               <button class="card-button">Projects</button>
               <button class="card-button">Contact Me</button>
             </div>
@@ -74,7 +79,7 @@
     </section>
 
 
-        <!-- Update the experience section in index.html -->
+ <!-- EXPERIENCE -->
     <section class="experience" id="experience">
       <div class="content">
         
@@ -117,7 +122,7 @@
               </li>
               <li class="experience-content">
                 <h3>Jr. Programmer</h3>
-                <div class="experience-time">CodeSpeedy <br> Mar2021- June 2021)</div>
+                <div class="experience-time">CodeSpeedy <br> Mar2021- June 2021</div>
                 <p>Enhanced a job portal with Node.js and React, implementing Okta for secure role-based access. Optimized job search latency by 30% using DynamoDB and Elasticsearch while ensuring high availability with AWS S3.</p>
               </li>
             </ul>
