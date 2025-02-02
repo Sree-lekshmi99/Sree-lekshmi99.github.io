@@ -630,22 +630,33 @@ h3 {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 20px;
-  }
-
+  /* Fix timeline alignment */
   .timeline-item {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-    left: 0 !important;
-    text-align: left !important;
+    padding-left: 50px;
+    padding-right: 15px;
   }
 
+  /* Adjust icon positioning */
   .timeline-item.left .timeline-icon,
   .timeline-item.right .timeline-icon {
-    left: 20px;
-    right: auto;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Prevent content overflow */
+  .timeline-content {
+    padding: 15px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Fix text wrapping */
+  .timeline-content h3,
+  .timeline-content h4,
+  .timeline-content p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 
