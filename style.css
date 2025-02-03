@@ -243,11 +243,20 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
   background-color: var(--mako); /* Dark background */
   color: #E8F9FF; /* Primary text color */
   font-family: "Bitter", Helvetica;
+  overflow-x: hidden;
+  position: relative;
 }
 
+html{
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 /* Typography */
 ul li {
   padding-top: .5em;
@@ -510,14 +519,33 @@ h3 {
     transform: rotateX(-15deg) translateY(0px);
   }
 }
-
+/* Home screen mobile */
 @media (max-width: 768px) {
   .one-div {
     margin-bottom: 60px; /* Adjusted mobile spacing */
   }
 }
 
-
+@media (max-width: 768px) {
+  #home {
+    background-position: 65% center; /* Adjust background position */
+  }
+  
+  .home-content h1 {
+    font-size: 2.5rem; /* Reduce heading size */
+    padding: 0 15px; /* Add padding */
+  }
+  
+  .typewriter {
+    font-size: 1.5rem; /* Reduce typewriter text size */
+  }
+  
+  .one-div {
+    width: 90%; /* Make card responsive */
+    max-width: 280px;
+    margin-bottom: 80px; /* Adjust spacing */
+  }
+}
 
 
 
@@ -554,6 +582,28 @@ h3 {
   margin: 0 auto;
 }
 
+
+
+/* ABout mobile screen */
+@media (max-width: 768px) {
+  #about {
+    padding: 40px 15px; /* Adjust padding */
+  }
+  
+  .tagline {
+    font-size: 1rem; /* Reduce text size */
+    text-align: left; /* Align text properly */
+    padding: 0 10px;
+  }
+  
+  .horizontal-line {
+    width: 150px; /* Reduce line length */
+  }
+}
+
+
+
+/*Experiecne and edu*/
 .timeline-container {
   position: relative;
   padding: 80px 20px;
@@ -627,6 +677,17 @@ h3 {
   border: 2px solid var(--ash-gray);
   position: relative;
 }
+
+.timeline-content h3,
+.timeline-content h4,
+.timeline-content p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+
+
 
 /* Mobile Responsive */
 /* Timeline Mobile Fixes */
@@ -702,21 +763,32 @@ h3 {
 }
 
 /* Additional fixes for very small screens */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .timeline-item {
-    padding-left: 60px;
+    padding-left: 50px; /* Adjust item padding */
   }
-
+  
   .timeline::before {
-    left: 20px;
+    left: 25px; /* Adjust timeline position */
   }
-
+  
   .timeline-icon {
-    left: 0;
+    width: 40px;
+    height: 40px;
+    left: -5px !important; /* Position icons correctly */
   }
-
+  
   .timeline-content {
-    padding: 10px;
+    padding: 15px; /* Adjust content padding */
+    margin-right: 15px;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.2rem; /* Reduce heading size */
+  }
+  
+  .timeline-content p {
+    font-size: 0.9rem; /* Reduce text size */
   }
 }
 
