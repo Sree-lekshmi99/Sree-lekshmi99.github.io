@@ -950,7 +950,7 @@ h3 {
 
 
 
-/* Simplified hover effect */
+/* hover effect */
 .progress-container:hover i {
   opacity: 0.3;
   transform: translate(-50%, -50%) scale(1.1);
@@ -967,7 +967,7 @@ h3 {
   }
   .skill-name {
     position: absolute;
-    bottom: -30px; /* Increased from -25px to create more space */
+    bottom: -30px;
     text-align: center;
     font-size: 0.9rem;
     color: var(--ash-gray);
@@ -1013,7 +1013,27 @@ h3 {
 }
 
 
+/* Few More Skills Heading */
+#skills h4 {
+  text-align: center;
+  color: var(--ash-gray);
+  font-size: 2rem;
+  margin: 4rem 0 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
 
+#skills h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--ash-gray);
+  opacity: 0.3;
+}
 
 
 
