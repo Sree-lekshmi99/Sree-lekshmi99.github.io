@@ -243,19 +243,23 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   background-color: var(--mako); /* Dark background */
   color: #E8F9FF; /* Primary text color */
   font-family: "Bitter", Helvetica;
-  overflow-x: hidden;
   position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+
+  
 }
 
 html{
   width: 100%;
   min-height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  width: 100vw;
 }
 /* Typography */
 ul li {
@@ -283,11 +287,18 @@ h3 {
   height: 100vh;
   background-image: url('img/portfolio.jpg');
   background-size: cover;
-  background-position: center;
+  /* background-position: center; */
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-position: center center;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  transform: none !important;
   
 }
 
