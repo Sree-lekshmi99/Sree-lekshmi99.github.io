@@ -887,34 +887,38 @@ h3 {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 15px;
   }
   
   .progress-container {
-      max-width: 120px;
+    max-width: 120px;
   }
   
   .progress-container i {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 480px) {
   .skills-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    max-width: 300px; /* Constrain grid width */
   }
   
   .progress-container {
-      max-width: 100px;
+    max-width: 100px;
   }
   
   .progress-container i {
-      font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 }
 
-/* Skills Section */
+
+
+/* Skills Section Carousel */
 #skills {
   padding: 80px 20px;
   background: var(--mako);
@@ -989,19 +993,6 @@ h3 {
   transform: scale(1.1);
 }
 
-/* @keyframes infiniteLoop {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-} */
-
-/* @keyframes infiniteLoop { */
-  /* 0% {
-      transform: translate3d(0, 0, 0);
-  }
-  100% {
-      transform: translate3d(calc(-100px * 10), 0, 0);
-  }
-} */
 
 
 @keyframes infiniteLoop {
