@@ -89,6 +89,25 @@ document.getElementById('btn-edu-exp').addEventListener('click', function(e) {
   }
 });
 
+
+document.getElementById('btn-skills').addEventListener('click', function(e) {
+  e.stopPropagation();
+  
+  if (window.innerWidth <= 768) {
+    whyHireMeCard.classList.add('active');
+    setTimeout(() => {
+      document.getElementById('skills').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 300);
+  } else {
+    document.getElementById('skills').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+});
+
+
 // Loader dismissal with guaranteed minimum 3 second display
 const loader = document.querySelector('.loader');
 const minimumDisplayTime = 3000; // 3 seconds

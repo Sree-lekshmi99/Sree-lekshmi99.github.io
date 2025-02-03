@@ -54,7 +54,6 @@
         <h1>SREE LEKHMI PRASANNAN</h1>
         <h6 class="typewriter">I am a <span id="typewriter"></span></h6>
         <div class="social-links">
-        <!-- Replace the existing social-links div with this -->
         <ul class="social-icons">
           <li><a href="#"><i class="fab fa-github" aria-hidden="true"></i></a></li>
           <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
@@ -68,7 +67,7 @@
               
               <button class="card-button" id="btn-about">About</button>
               <button class="card-button" id ="btn-edu-exp">Edu-Exp</button>
-              <button class="card-button">Skills</button>
+              <button class="card-button" id ="btn-skills">Skills</button>
               <button class="card-button">Projects</button>
               <button class="card-button">Contact Me</button>
             </div>
@@ -80,13 +79,19 @@
 
 
 
-    <!-- Update About Section -->
+    <!-- About Section -->
     <section id="about">
       <div class="about-header">
         <h2>About ME</h2>
         <p class="tagline">Hey, I’m Sree Lekshmi! I have a master’s in Data Science from SUNY Buffalo and a background in Information Technology. I’ve worked across machine learning, analytics, and web development, and I’m currently looking for roles as a Software Engineer, Data Analyst, Machine Learning Engineer, Data Engineer, Business Analyst, or Data Scientist. But let’s be real—this job market is absolutely cooked.
 
           Apart from that, I love boba, get lost in novels, and find both peace and chaos in video games. 🚀</p>
+
+          <button class="download-btn" onclick="downloadResume()">
+            <span class="text">Download my resume</span>
+            <span>Thanks!</span>
+          </button>
+          
           <h4>Below is my education and experience, which sum up what I’ve been up to for the past 7 years.</h>
         <div class="horizontal-line"></div>
       </div>
@@ -358,5 +363,15 @@ Developed PowerBI reports with DAX and KPIs, boosting program strategies and eng
     </section>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    function downloadResume() {
+      const link = document.createElement('a');
+      link.href = 'Sree.pdf';
+      link.download = 'SreeLekshmi_resume.pdf.'; 
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+    </script>
 </body>
 </html>
