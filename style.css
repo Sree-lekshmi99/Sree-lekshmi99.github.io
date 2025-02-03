@@ -7,6 +7,8 @@
   --ash-gray-2: #9eb1aaff;
   --eggplant: #2d3241;
   --mako : #263140;
+  --light-gray: #9ca6a2;
+
 }
 
 /* ================== */
@@ -755,6 +757,20 @@ h3 {
     max-width: 100%;
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
   /* Adjust about section padding */
   #about {
     padding: 40px 15px;
@@ -807,13 +823,237 @@ h3 {
 
 
 
+/* SKILLS */
+/* SKILLS */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 20px;
+}
+
+.progress-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+/* Only modify the icon positioning */
+.progress-container i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2); /* Added slight scale for better visibility */
+  font-size: 2.5rem;
+  color: var(--ash-gray);
+}
+
+.progress-bar {
+  width: 100%;
+  height: auto;
+  transform: rotate(-90deg);
+}
+
+.progress-bar circle {
+  fill: transparent;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.progress-meter {
+  stroke: var(--mako);
+}
+
+.progress-value {
+  stroke: var(--ash-gray);
+  stroke-dasharray: 301.59;
+  stroke-dashoffset: 301.59;
+  transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.progress-container i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: var(--ash-gray);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+  }
+  
+  .progress-container {
+      max-width: 120px;
+  }
+  
+  .progress-container i {
+      font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+      grid-template-columns: 1fr;
+  }
+  
+  .progress-container {
+      max-width: 100px;
+  }
+  
+  .progress-container i {
+      font-size: 1.5rem;
+  }
+}
+
+/* Skills Section */
+#skills {
+  padding: 80px 20px;
+  background: var(--mako);
+  position: relative;
+}
+
+.skills-carousel {
+  max-width: 960px;
+  margin: 40px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.skills-carousel::before,
+.skills-carousel::after {
+  content: "";
+  width: 100px;
+  height: 100%;
+  background: linear-gradient(to right, var(--mako) 0%, rgba(38, 49, 64, 0) 100%);
+  position: absolute;
+  z-index: 2;
+}
+
+.skills-carousel::before {
+  top: 0;
+  left: 0;
+}
+
+.skills-carousel::after {
+  top: 0;
+  right: 0;
+  transform: rotateZ(180deg);
+}
+
+.skills-track {
+  display: flex;
+  animation: infiniteLoop 15s linear infinite;
+  will-change: transform;
+  /* animation-fill-mode: forwards; */
+  width: fit-content; /* Add this */
+  gap: 15px; 
+
+  
+}
+
+.skill-logo {
+  min-width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 15px;
+  color: var(--ash-gray);
+  transition: all 0.3s ease;
+}
+
+.skill-logo i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.skill-logo span {
+  font-size: 0.9rem;
+  text-align: center;
+  max-width: 100px;
+  line-height: 1.2;
+}
+
+.skill-logo:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* @keyframes infiniteLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+} */
+
+/* @keyframes infiniteLoop { */
+  /* 0% {
+      transform: translate3d(0, 0, 0);
+  }
+  100% {
+      transform: translate3d(calc(-100px * 10), 0, 0);
+  }
+} */
 
 
+@keyframes infiniteLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .skills-carousel {
+      max-width: 100%;
+  }
+  
+  .skill-logo {
+      min-width: 100px;
+      height: 100px;
+      margin: 0 10px;
+  }
+  
+  .skill-logo i {
+      font-size: 2rem;
+  }
+  
+  .skill-logo span {
+      font-size: 0.7rem;
+      max-width: 80px;
+  }
+  
+  .skills-carousel::before,
+  .skills-carousel::after {
+      width: 50px;
+  }
+}
 
-
-
-
+@media (max-width: 480px) {
+  .skills-track {
+      animation-duration: 20s;
+  }
+  
+  .skill-logo {
+      min-width: 80px;
+      height: 80px;
+  }
+  
+  .skill-logo i {
+      font-size: 1.5rem;
+  }
+  
+  .skill-logo span {
+      font-size: 0.6rem;
+  }
+}
 
 
 

@@ -103,3 +103,18 @@ window.addEventListener('load', function() {
     setTimeout(() => loader.remove(), 1000);
   }, remaining);
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const progressContainers = document.querySelectorAll('.progress-container');
+  
+  progressContainers.forEach(container => {
+      const progressValue = container.querySelector('.progress-value');
+      const dataValue = parseInt(container.dataset.value);
+      const radius = progressValue.getAttribute('r');
+      const circumference = 2 * Math.PI * radius;
+      const offset = circumference - (dataValue / 100 * circumference);
+
+      progressValue.style.strokeDasharray = circumference;
+      progressValue.style.strokeDashoffset = offset;
+  });
+});
