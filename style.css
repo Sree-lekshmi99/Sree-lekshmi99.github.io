@@ -629,34 +629,94 @@ h3 {
 }
 
 /* Mobile Responsive */
+/* Timeline Mobile Fixes */
 @media (max-width: 768px) {
-  /* Fix timeline alignment */
-  .timeline-item {
-    padding-left: 50px;
-    padding-right: 15px;
+  .timeline::before {
+    left: 30px; /* Move timeline line to left side */
   }
 
-  /* Adjust icon positioning */
+  .timeline-item {
+    width: 100%; /* Full width for mobile */
+    padding: 0 0 50px 70px; /* Adjust padding to accommodate left-aligned timeline */
+    left: 0; /* Reset left positioning */
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
   .timeline-item.left .timeline-icon,
   .timeline-item.right .timeline-icon {
-    left: 10px;
+    left: 0;
     width: 40px;
     height: 40px;
   }
 
-  /* Prevent content overflow */
-  .timeline-content {
-    padding: 15px;
-    max-width: 100%;
-    overflow: hidden;
+  .timeline-item.left .timeline-content {
+    margin-right: 0;
   }
 
-  /* Fix text wrapping */
+  .timeline-content {
+    width: calc(100% - 20px); /* Adjust width to prevent overflow */
+    margin: 0;
+    padding: 15px;
+  }
+
+  /* Adjust icon size for mobile */
+  .timeline-icon img {
+    width: 50%;
+    height: auto;
+  }
+
+  /* Fix container padding */
+  .timeline-container {
+    padding: 40px 15px;
+  }
+
+  /* Ensure text wrapping */
   .timeline-content h3,
   .timeline-content h4,
   .timeline-content p {
     word-wrap: break-word;
-    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
+  /* Adjust about section padding */
+  #about {
+    padding: 40px 15px;
+  }
+
+  /* Center the about header content */
+  .about-header {
+    text-align: center;
+    padding: 0 15px;
+  }
+
+  /* Ensure the background image is centered */
+  #home {
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 480px) {
+  .timeline-item {
+    padding-left: 60px;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-icon {
+    left: 0;
+  }
+
+  .timeline-content {
+    padding: 10px;
   }
 }
 
