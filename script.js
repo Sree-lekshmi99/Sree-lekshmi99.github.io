@@ -100,7 +100,7 @@ window.addEventListener('load', function() {
 
   setTimeout(() => {
     loader.style.opacity = '0';
-    setTimeout(() => loader.remove(), 1000);
+    setTimeout(() => loader.remove(), 500);
   }, remaining);
 });
 

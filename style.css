@@ -832,14 +832,18 @@ h3 {
   max-width: 1000px;
   margin: 2rem auto;
   padding: 0 20px;
+  row-gap: 4rem;
 }
 
 .progress-container {
   position: relative;
-  width: 100%; /* Make container responsive */
-  max-width: 150px; /* Maximum size */
+  width: 100%;
+  max-width: 150px;
   margin: 0 auto;
-  aspect-ratio: 1; /* Maintain square shape */
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Only modify the icon positioning */
@@ -847,10 +851,12 @@ h3 {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(1.2); /* Added slight scale for better visibility */
+  transform: translate(-50%, -50%); /* Added slight scale for better visibility */
   font-size: 2.5rem;
   color: var(--ash-gray);
+  z-index: 2
 }
+
 
 .progress-bar {
   width: 100%;
@@ -884,6 +890,23 @@ h3 {
   color: var(--ash-gray);
 }
 
+.skill-name {
+  position: absolute; /* Add this */
+  bottom: -25px; /* Add this to move the text below the circle */
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--ash-gray);
+  width: 100%;
+}
+
+
+/* Simplified hover effect */
+.progress-container:hover i {
+  opacity: 0.3;
+  transform: translate(-50%, -50%) scale(1.1);
+  transition: all 0.3s ease;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .skills-grid {
@@ -892,6 +915,11 @@ h3 {
     gap: 1rem;
     padding: 0 10px;
   }
+  .skill-name {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+
   
   .progress-container {
     max-width: 100px;
@@ -905,11 +933,17 @@ h3 {
 @media (max-width: 480px) {
   .skills-grid {
     grid-template-columns: repeat(3, 1fr); /* 3 columns on smallest screens */
-    gap: 0.8rem;
+    gap: 2rem;
+    row-gap: 4rem;
+  }
+
+  .skill-name {
+    font-size: 0.7rem;
+    margin-top: 8px;
   }
   
   .progress-container {
-    max-width: 80px;
+    max-width: 100px;
   }
   
   .progress-container i {
