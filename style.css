@@ -916,10 +916,13 @@ h3 {
     padding: 0 10px;
   }
   .skill-name {
-    font-size: 0.8rem;
-    margin-top: 10px;
+    position: absolute;
+    bottom: -30px; /* Increased from -25px to create more space */
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--ash-gray);
+    width: 100%;
   }
-
   
   .progress-container {
     max-width: 100px;
@@ -938,8 +941,12 @@ h3 {
   }
 
   .skill-name {
-    font-size: 0.7rem;
-    margin-top: 8px;
+    position: absolute;
+    bottom: -30px; /* Increased from -25px to create more space */
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--ash-gray);
+    width: 100%;
   }
   
   .progress-container {
