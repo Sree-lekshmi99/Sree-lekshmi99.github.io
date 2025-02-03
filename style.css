@@ -693,13 +693,13 @@ h3 {
 }
 
 .timeline-content h3{
-  .timeline-content h3 {
-    margin-bottom: 8px;
-    font-size: 1.1rem;
-    line-height: 1.4; /* Add line height */
-    word-break: break-word; /* Allow words to break */
-    hyphens: auto; /* Enable hyphenation */
-  }
+
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  line-height: 1.4; /* Add line height */
+  word-break: break-word; /* Allow words to break */
+  hyphens: auto; /* Enable hyphenation */
+  
 }
 .timeline-content h4{  
   margin-bottom: 8px;
@@ -841,13 +841,14 @@ h3 {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
 }
 
-.timeline-item.left,
-.timeline-item.right {
-  left: 0;
-  text-align: left;
-}
+
 
 
 @media (max-width: 480px) {
@@ -945,6 +946,8 @@ h3 {
   color: var(--ash-gray);
   width: 100%;
 }
+
+
 
 
 /* Simplified hover effect */
