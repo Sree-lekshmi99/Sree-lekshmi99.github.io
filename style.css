@@ -836,10 +836,10 @@ h3 {
 
 .progress-container {
   position: relative;
-  width: 120px;
-  height: 120px;
-  max-width: 150px;
+  width: 100%; /* Make container responsive */
+  max-width: 150px; /* Maximum size */
   margin: 0 auto;
+  aspect-ratio: 1; /* Maintain square shape */
 }
 
 /* Only modify the icon positioning */
