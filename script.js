@@ -108,6 +108,43 @@ document.getElementById('btn-skills').addEventListener('click', function(e) {
 });
 
 
+// Project Section
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('projectModal');
+  const detailButtons = document.querySelectorAll('.view-details-btn');
+  const closeButton = document.querySelector('.close-modal');
+
+  // Open modal when clicking the View Details button
+  detailButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    });
+  });
+
+  // Close modal when clicking the close button
+  closeButton.addEventListener('click', () => {
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore background scrolling
+  });
+
+  // Close modal when clicking outside the slider
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
+});
+
 // Loader dismissal with guaranteed minimum 3 second display
 const loader = document.querySelector('.loader');
 const minimumDisplayTime = 3000; // 3 seconds
