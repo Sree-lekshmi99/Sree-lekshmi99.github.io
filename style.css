@@ -1439,11 +1439,70 @@ h3 {
   height: min(90vh, 500px);
   margin: auto;
   padding: clamp(15px, 3vw, 25px);
-  overflow: auto;
   position: relative;
-  background: white; /* Add this */
-  border-radius: 15px;
+  background: #ffffff;
+  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);
+  background-size: 100% 1.2rem;
+  border-radius: 10px;
+  cursor: move;
+  position: relative;
 }
+
+.project-slider {
+  width: min(95%, 800px);
+  height: min(90vh, 500px);
+  margin: auto;
+  padding: clamp(15px, 3vw, 25px);
+  position: relative;
+  background: #ffffff;
+  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);
+  background-size: 100% 1.2rem;
+  border-radius: 10px;
+  cursor: move;
+  
+  /* Add paper shadow effect */
+  position: relative;
+}
+
+/* Paper shadow effects */
+.project-slider::before,
+.project-slider::after {
+  position: absolute;
+  content: "";
+  bottom: 10px;
+  width: 40%;
+  height: 10px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.project-slider::before {
+  left: 15px;
+  transform: skew(-5deg) rotate(-5deg);
+}
+
+.project-slider::after {
+  right: 15px;
+  transform: skew(5deg) rotate(5deg);
+}
+
+/* Hover effect for shadows */
+.project-slider:hover::before,
+.project-slider:hover::after {
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 .slider-wrapper {
   height: 100%;
@@ -1482,17 +1541,20 @@ h3 {
   font-weight: 700;
   color: #333;
   margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .project-tech {
   color: #666;
   margin-bottom: 15px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .project-description {
   color: #666;
   margin-bottom: 30px;
   line-height: 1.6;
+  font-family: 'Poppins', sans-serif;
 }
 
 .project-links {
@@ -1502,15 +1564,53 @@ h3 {
 }
 
 .git-link {
-  flex: 1;
-  min-width: 140px;
-  padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 35px);
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition-duration: .4s;
+  cursor: pointer;
+  position: relative;
+  background-color: rgb(31, 31, 31);
+  overflow: hidden;
+  align-items: center;
+}
+
+
+.svgIcon {
+  transition-duration: .3s;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.text {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  width: 120px;
+  font-weight: 600;
+  opacity: 0;
+  transition-duration: .4s;
 }
 
 .git-link:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 8px 15px rgba(219,112,147,0.2);
+  width: 110px;
+  transition-duration: .4s;
+  border-radius: 30px;
+}
+
+.git-link:hover .text {
+  opacity: 1;
+  transition-duration: .4s;
+}
+
+.git-link:hover .svgIcon {
+  opacity: 0;
+  transition-duration: .3s;
 }
 
 .close-modal {
