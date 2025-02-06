@@ -381,6 +381,35 @@ h3 {
   transition: .5s;
 }
 
+/* LeetCode Icon */
+.custom-leetcode {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  line-height: calc(50px - 12px);
+  transition: 0.5s;
+  color: #FEF1E6; /* Default color */
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.custom-leetcode svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  margin: 0 auto;
+  fill: currentColor;
+   /* Inherit color from parent */
+}
+
+.social-icons li:nth-child(5) a:hover .custom-leetcode {
+  color: #FFA116; /* LeetCode orange */
+}
+
 .social-icons li:nth-child(1) a:hover .fab {
   color: #f5f5f5; /* GitHub */
 }
@@ -414,6 +443,10 @@ h3 {
     line-height: calc(40px - 12px);
     font-size: 20px;
   }
+  .social-icons li a .custom-leetcode {
+    line-height: calc(40px - 12px);
+    font-size: 20px;
+}
 }
 
 
@@ -593,70 +626,50 @@ h3 {
   margin: 0 auto;
 }
 
-
-.about-header button {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #18181a;
-  color: #18181a;
-  display: block;
-  font-size: 15px;
-  line-height: 15px;
-  padding: 18px 18px 17px;
-  text-decoration: none;
+.download-btn {
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(to top, #00154c, #12376e, #23487f);
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  outline: none;
   cursor: pointer;
-  background: #fff;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
- }
- 
- .about-header button span:first-child {
   position: relative;
-  transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 10;
- }
- 
- .about-header button span:last-child {
-  color: white;
-  display: block;
-  position: absolute;
-  bottom: 0;
-  transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
-  z-index: 100;
-  opacity: 0;
-  top: 50%;
-  left: 50%;
-  transform: translateY(225%) translateX(-50%);
-  height: 14px;
-  line-height: 13px;
- }
- 
- .about-header button:after {
-  content: "";
-  position: absolute;
-  bottom: -50%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
-  transform-origin: bottom center;
-  transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
-  transform: skewY(9.3deg) scaleY(0);
-  z-index: 50;
- }
- 
- .about-header button:hover:after {
-  transform-origin: bottom center;
-  transform: skewY(9.3deg) scaleY(2);
- }
- 
- .about-header button:hover span:last-child {
-  transform: translateX(-50%) translateY(-50%);
-  opacity: 1;
-  transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
- }
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
 
+.download-btn span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: top 0.5s;
+}
+
+.btn-text-one {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn-text-two {
+  position: absolute;
+  width: 100%;
+  top: 150%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.download-btn:hover .btn-text-one {
+  top: -100%;
+}
+
+.download-btn:hover .btn-text-two {
+  top: 50%;
+}
 /* ABout mobile screen */
 @media (max-width: 768px) {
   #about {
