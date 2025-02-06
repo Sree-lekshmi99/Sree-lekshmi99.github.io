@@ -89,6 +89,7 @@ document.getElementById('btn-edu-exp').addEventListener('click', function(e) {
   }
 });
 
+//Skills Section
 
 document.getElementById('btn-skills').addEventListener('click', function(e) {
   e.stopPropagation();
@@ -107,6 +108,23 @@ document.getElementById('btn-skills').addEventListener('click', function(e) {
   }
 });
 
+//Project
+document.getElementById('btn-project').addEventListener('click', function(e) {
+  e.stopPropagation();
+  
+  if (window.innerWidth <= 768) {
+    whyHireMeCard.classList.add('active');
+    setTimeout(() => {
+      document.getElementById('projects').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 300);
+  } else {
+    document.getElementById('projects').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+});
 
 // Project Section
 document.addEventListener('DOMContentLoaded', function() {
@@ -144,6 +162,35 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+
+
+
+
+
+//contact me
+document.getElementById('btn-contact-me').addEventListener('click', function(e) {
+  e.stopPropagation();
+  
+  if (window.innerWidth <= 768) {
+    whyHireMeCard.classList.add('active');
+    setTimeout(() => {
+      document.getElementById('contactme').scrollIntoView({
+        behavior: 'smooth'
+      });
+    }, 300);
+  } else {
+    document.getElementById('contactme').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+});
+
+
+
+
+
+
 
 // Loader dismissal with guaranteed minimum 3 second display
 const loader = document.querySelector('.loader');

@@ -1769,6 +1769,78 @@ h3 {
 
 
 
+/* Start Contact Me */
+.contact-me {
+
+  overflow: hidden;
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
+
+.contact-me h2 {
+  color: #fff;
+  margin-left: 40px;
+  text-align: center;
+}
+
+.contact-me p , .contact-me address{
+  color: #6A6E71;
+  margin-left: 40px;
+}
+.contact-me p strong{
+  color: #d1d6da;
+}
+
+.contact-me .info, .contact-me .form {
+  width: 45%;
+  float: left;
+}
+.contact-me .form{
+  margin-top: 10px;
+  margin-left: 5%;
+}
+.contact-me .form label{
+  display: block;
+  color: #d1d6da;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.contact-me .form input[type="text"]{
+  color: #fff;
+  background-color:#4b5557;
+  border: 0;
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.contact-me .form input[type="email"]{
+  color: #fff;
+  background-color:#4b5557;
+  border: 0;
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.contact-me .form textarea{
+  color: #fff;
+  background-color:#4b5557;
+  border: 0;
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.contact-me .form input[type="submit"]{
+  background-color: #191e22;
+  color: #fff;
+  padding: 10px 20px;
+  border: 0;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+/* End Contact Me */
 
 
 
