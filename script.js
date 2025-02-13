@@ -134,7 +134,26 @@ const projects = [
     title: "CARBON EMISSION ANALYZER",
     tech: "Node.js, React, AWS, Kibana",
     date: "October 2024 - Jan 2025",
-    description:`A machine learning system designed to detect cardiac anomalies in ECG data using LSTM autoencoders. It effectively differentiates between normal and abnormal heart patterns with high accuracy, providing reliable insights for early diagnosis and monitoring.
+    description:`A cloud-native serverless application that helps users track and reduce their carbon footprint from food consumption. The system calculates the environmental impact of food choices and offers sustainable alternatives.
+    Key Features:
+    • AI-powered chatbot using Amazon Lex to assess food-related carbon emissions
+    • Serverless architecture leveraging AWS Lambda, DynamoDB, and AWS Amplify
+    • Real-time data indexing and analytics with Elasticsearch and Kibana
+    • Interactive dashboards and visualization tools for tracking progress
+    • Automated alerts and notifications using AWS SNS and CloudWatch
+
+    Applications:
+    • Personal carbon footprint tracking
+    • Policy research and sustainable consumption analysis
+    • Corporate sustainability initiatives
+    • Eco-conscious product recommendations`,
+    github: "https://github.com/user/carbon-emission-analyzer"
+  },
+  {
+    title: "LSTM AUTOENCODER FOR ECG ANOMALY DETECTION",
+    tech: "PyTorch, LSTM, Autoencoder, Matplotlib",
+    date: "Feb 2024 - May 2024",
+    description: `A machine learning system designed to detect cardiac anomalies in ECG data using LSTM autoencoders. It effectively differentiates between normal and abnormal heart patterns with high accuracy, providing reliable insights for early diagnosis and monitoring.
 
     Key Features:
     • Built with PyTorch's deep learning framework for efficient ECG data processing
@@ -148,22 +167,48 @@ const projects = [
     • Continuous patient monitoring systems
     • Healthcare diagnostic support tool
     • Research and development in medical AI`,
-    github: "https://github.com/user/carbon-emission-analyzer"
-  },
-  {
-    title: "LSTM AUTOENCODER FOR ECG ANOMALY DETECTION",
-    tech: "PyTorch, LSTM, Autoencoder, Matplotlib",
-    date: "Feb 2024 - May 2024",
-    description: "A machine learning system that detects cardiac anomalies in ECG data using LSTM autoencoders.",
     github: "https://github.com/user/ecg-anomaly-detection"
   },
   {
     title: "SAN FRANCISCO CRIME ANALYSIS & FORECASTING",
     tech: "ARIMA, ETS, ACF, PCF, spatial mapping",
     date: "Oct 2023 - Dec 2023",
-    description: "A time series crime forecasting project analyzing 15 years of crime trends in San Francisco.",
+    description: `An extensive analysis of 15 years of San Francisco crime data, identifying patterns, spatial distributions, and forecasting future crime trends to aid urban safety planning.
+    Key Features:
+    • Exploratory data analysis (EDA) to uncover crime patterns
+    • Time series forecasting using ARIMA, ETS, ACF, and seasonal models
+    • Spatial mapping to identify crime hotspots across the city
+    • Analysis of theft trends, peak crime hours, and seasonal variations
+    • Comparative model evaluation, revealing surprising efficiency in simple mean forecasting
+
+    Applications:
+    • Crime trend analysis for urban safety planning
+    • Policy recommendations based on historical data
+    • Identification of high-risk neighborhoods for law enforcement focus
+    • Insights for residents and businesses regarding crime-prone areas`,
     github: "https://github.com/user/crime-analysis"
-  }
+  },
+  {
+    title: "DATABASE DESIGN FOR SPOTIFY",
+    tech: "PostgreSQL, SQL, Database Design",
+    date: "Oct 2023 - Dec 2023",
+    description: `A robust relational database system designed to enhance data management and integrity for Spotify’s music streaming service. This project transitions from Excel-based data handling to a scalable and efficient database solution, improving recommendations, artist payments, and user experience.
+    
+    Key Features:
+    • Designed a normalized relational schema to optimize data integrity
+    • Created ER diagrams and relational schemas for structured data storage
+    • Implemented SQL queries to analyze user preferences and song trends
+    • Improved query execution efficiency with indexing and query optimization techniques
+    • Addressed data redundancy and consistency challenges with normalization techniques
+    
+    Applications:
+    • Scalable data management for streaming platforms
+    • Enhanced personalized recommendations
+    • Real-time data retrieval and analytics for marketing campaigns
+    • Optimized storage for large-scale music databases`,
+    github: "https://github.com/user/spotify-db-design"
+    
+    },
 ];
 
 // Handle project modal
