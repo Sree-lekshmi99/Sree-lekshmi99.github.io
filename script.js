@@ -209,6 +209,25 @@ const projects = [
     github: "https://github.com/user/spotify-db-design"
     
     },
+    {
+      title: "USED CAR PRICE PREDICTION",
+      tech: "Python, Scikit-learn, XGBoost, LightGBM, GridSearchCV, Pandas, Matplotlib, Seaborn",
+      date: "October 2024 - January 2025",
+      description: `A data-driven machine learning project aimed at predicting the average price of used cars based on various attributes such as age, mileage, condition, and repair costs. The system helps buyers make informed decisions by providing accurate price predictions and insights into key factors influencing car prices.
+      Key Features:
+      • Utilized a dataset of 57,122 used cars with 286 features after preprocessing and filtering.
+      • Implemented and compared multiple regression models including Decision Tree, Random Forest, XGBoost, LightGBM, and Gradient Boosting.
+      • Performed hyperparameter tuning using GridSearchCV and RandomizedSearchCV for optimal model performance.
+      • Evaluated models using metrics like R² Score, MAE, MSE, and RMSE to ensure accuracy and reliability.
+      • Visualized feature importance and predicted vs actual values to provide interpretable insights.
+  
+      Applications:
+      • Assisting buyers in making budget-conscious decisions when purchasing used cars.
+      • Providing insights into key factors driving used car prices, such as age, mileage, and repair costs.
+      • Enabling auction participants to bid more accurately by considering potential repair expenses.
+      • Supporting market analysis and pricing strategies for used car dealerships.`,
+      github: "https://github.com/user/used-car-price-prediction"
+  }
 ];
 
 // Handle project modal
