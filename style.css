@@ -629,7 +629,9 @@ h3 {
 .download-btn {
   width: 140px;
   height: 50px;
-  background: linear-gradient(to top, #00154c, #12376e, #23487f);
+  /* background: linear-gradient(to top, #00154c, #12376e, #23487f);
+   */
+   background:  linear-gradient(135deg, #ffb997 0%, #f67e7d 50%, #843b62 100%);
   color: #fff;
   border-radius: 50px;
   border: none;
@@ -1432,6 +1434,7 @@ h3 {
 
 
 /* Modal Slider */
+/* Modal Slider */
 .modal {
   display: none;
   position: fixed;
@@ -1439,10 +1442,11 @@ h3 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(45, 50, 65, 0.7); /* Using eggplant with opacity */
   z-index: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
+  backdrop-filter: blur(3px);
 }
 
 .modal.active {
@@ -1456,74 +1460,47 @@ h3 {
   margin: auto;
   padding: clamp(15px, 3vw, 25px);
   position: relative;
-  background: #ffffff;
-  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);
-  background-size: 100% 1.2rem;
-  border-radius: 10px;
-  cursor: move;
+  background: linear-gradient(
+    135deg,
+    rgba(70, 94, 123, 0.2),  /* paynes-gray with opacity */
+    rgba(38, 49, 64, 0.95)   /* mako with opacity */
+  );
+  border-radius: 15px;
+  cursor: default;
   position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(156, 166, 162, 0.1); /* light-gray with opacity */
+  box-shadow: 0 10px 30px rgba(45, 50, 65, 0.3); /* eggplant shadow */
 }
 
-.project-slider {
-  width: min(95%, 800px);
-  height: min(90vh, 500px);
-  margin: auto;
-  padding: clamp(15px, 3vw, 25px);
-  position: relative;
-  background: #ffffff;
-  background-image: linear-gradient(#ffffff 1.1rem, #ccc 1.2rem);
-  background-size: 100% 1.2rem;
-  border-radius: 10px;
-  cursor: move;
-  
-  /* Add paper shadow effect */
-  position: relative;
-}
-
-/* Paper shadow effects */
-.project-slider::before,
-.project-slider::after {
-  position: absolute;
-  content: "";
-  bottom: 10px;
-  width: 40%;
-  height: 10px;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.7);
-  z-index: -1;
-  transition: all 0.3s ease;
-}
-
+/* Animated circle background effect */
 .project-slider::before {
-  left: 15px;
-  transform: skew(-5deg) rotate(-5deg);
+  content: "";
+  height: 180px;
+  width: 180px;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  border-radius: 50%;
+  border: 35px solid rgba(172, 195, 190, 0.08);
+  transition: all 0.8s ease;
+  filter: blur(0.5rem);
+  z-index: 0;
 }
 
-.project-slider::after {
-  right: 15px;
-  transform: skew(5deg) rotate(5deg);
+.project-slider:hover::before {
+  transform: scale(1.2) translateX(-30%) translateY(10%);
+  filter: blur(0.2rem);
+  border-color: rgba(172, 195, 190, 0.12);
 }
-
-/* Hover effect for shadows */
-.project-slider:hover::before,
-.project-slider:hover::after {
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.4);
-}
-
-
-
-
-
-
-
-
-
-
-
 
 .slider-wrapper {
   height: 100%;
   overflow-y: auto;
   padding-right: 15px;
+  position: relative;
+  z-index: 1;
 }
 
 .slider-wrapper::-webkit-scrollbar {
@@ -1531,53 +1508,93 @@ h3 {
 }
 
 .slider-wrapper::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgba(156, 166, 162, 0.1);
   border-radius: 4px;
 }
 
 .slider-wrapper::-webkit-scrollbar-thumb {
-  background: #D8BFD8;
+  background: rgba(106, 92, 108, 0.3);
   border-radius: 4px;
 }
 
-.project-content {
-  padding: clamp(10px, 2vw, 20px);
+.project-description {
+  color: var(--ash-gray-2);
+  margin-bottom: 30px;
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
+.project-description p {
+  margin-bottom: 1.5rem;
+}
 
-.project-date {
-  color: #7b7992;
-  margin-bottom: 15px;
-  display: block;
-  font-weight: 500;
+.project-description ul {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.project-description li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.project-description li::before {
+  content: "•";
+  color: var(--ash-gray);
+  position: absolute;
+  left: 0;
+}
+
+.project-content {
+  padding: 30px;
 }
 
 .project-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 20px;
-  font-family: 'Poppins', sans-serif;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 .project-tech {
-  color: #666;
-  margin-bottom: 15px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.project-description {
-  color: #666;
-  margin-bottom: 30px;
-  line-height: 1.6;
-  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
 }
 
 .project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
+  margin-top: 2rem;
 }
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ash-gray);
+  font-size: 24px;
+  transition: color 0.3s ease;
+  z-index: 10;
+}
+
+.close-modal:hover {
+  color: var(--ash-gray-2);
+}
+
+
+
+.git-link {
+  background-color: var(--paynes-gray);
+  border: 1px solid rgba(172, 195, 190, 0.2);
+}
+
+.git-link:hover {
+  background-color: var(--mako);
+}
+
+
 
 .git-link {
   border: none;
@@ -1594,6 +1611,13 @@ h3 {
   overflow: hidden;
   align-items: center;
 }
+
+
+
+
+
+
+
 
 
 .svgIcon {
@@ -1613,6 +1637,7 @@ h3 {
   transition-duration: .4s;
 }
 
+
 .git-link:hover {
   width: 110px;
   transition-duration: .4s;
@@ -1629,19 +1654,6 @@ h3 {
   transition-duration: .3s;
 }
 
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 30px;
-  height: 30px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #666;
-  font-size: 24px;
-  transition: color 0.3s ease;
-}
 
 @media screen and (max-width: 992px) {
   .projects-grid {
