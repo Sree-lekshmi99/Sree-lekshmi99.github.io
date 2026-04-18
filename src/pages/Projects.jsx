@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 
 /* ── Category icons ── */
 const AISpark = () => (
@@ -339,6 +339,17 @@ function ProjectCard({ p, onContext }) {
 export default function Projects() {
   const [activeTab, setActiveTab] = useState('All')
   const [modal, setModal] = useState(null)
+  const location = useLocation()
+
+  // Auto-open a project modal when arriving from the Experience page
+  useEffect(() => {
+    const id = location.state?.openProjectId
+    if (id === undefined || id === null) return
+    // id 0 is the featured project
+    if (id === 0) { setModal(featured); return }
+    const found = projects.find(p => p.id === id)
+    if (found) setModal(found)
+  }, [location.state])
 
   const filtered = activeTab === 'All' ? projects : projects.filter(p =>
     p.categories ? p.categories.includes(activeTab) : p.category === activeTab
