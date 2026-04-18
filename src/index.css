@@ -569,6 +569,52 @@ img { max-width: 100%; display: block; }
 }
 .outro-rest { color: var(--cream); }
 
+/* ── High Five ── */
+.highfive-wrap {
+  margin: 18px 0 8px;
+}
+.highfive-btn {
+  background: transparent;
+  border: 2px solid var(--matcha);
+  color: var(--matcha);
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 20px;
+  padding: 10px 26px;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background .18s, color .18s, transform .15s, box-shadow .18s;
+}
+.highfive-btn:hover {
+  background: var(--matcha);
+  color: var(--cherry-deep);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(186,215,151,0.25);
+}
+.highfive-btn:active {
+  transform: scale(0.97);
+}
+.highfive-result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: highfive-pop .4s cubic-bezier(.34,1.56,.64,1) both;
+}
+.highfive-emoji {
+  font-size: 32px;
+  animation: highfive-pop .5s cubic-bezier(.34,1.56,.64,1) both;
+}
+.highfive-msg {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  color: var(--matcha);
+  font-weight: 700;
+}
+@keyframes highfive-pop {
+  0%   { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
 /* Looping arrow from label to photo */
 .meet-arrow {
   width: clamp(200px, 26vw, 360px);
@@ -664,6 +710,54 @@ a.table-teaser:hover { opacity: 0.8; }
 
 /* ============= Skills page ============= */
 .skills-page { padding-bottom: 60px; }
+
+/* ============= Projects page overrides ============= */
+
+/* 1 — Burgundy radial gradient background */
+.projects-page {
+  position: relative;
+  isolation: isolate;
+}
+.projects-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 75% 55% at 15% 8%,  rgba(130,8,44,0.82) 0%, transparent 58%),
+    radial-gradient(ellipse 60% 50% at 85% 92%,  rgba(74,4,25,0.88) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 55% 45%,  rgba(100,6,36,0.35) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+/* 2 — Paper grain overlay */
+.projects-page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.038;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 5 — Subtle glow behind headline */
+.projects-page .skills-head {
+  position: relative;
+}
+.projects-page .skills-head::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 480px; height: 220px;
+  background: radial-gradient(ellipse, rgba(186,215,151,0.13) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Cream featured card handled in base .proj-featured styles above */
+
 
 .skills-head { margin-bottom: 56px; }
 
@@ -863,7 +957,7 @@ a.table-teaser:hover { opacity: 0.8; }
 
 /* ============= Projects page ============= */
 
-/* filter tabs row */
+/* ── Filter tabs — GREEN system ── */
 .proj-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -876,8 +970,8 @@ a.table-teaser:hover { opacity: 0.8; }
   font-size: 20px;
   font-weight: 700;
   color: var(--matcha);
-  margin: 0 8px 0 0;
-  opacity: 0.7;
+  margin: 0;
+  opacity: 0.75;
   flex-basis: 100%;
   margin-bottom: 4px;
 }
@@ -885,10 +979,10 @@ a.table-teaser:hover { opacity: 0.8; }
   display: flex;
   align-items: center;
   gap: 5px;
-  background: transparent;
-  border: 1px solid rgba(186,215,151,0.22);
-  color: var(--ink-dim);
-  padding: 8px 16px;
+  background: rgba(186,215,151,0.07);
+  border: 1px solid rgba(186,215,151,0.2);
+  color: var(--matcha-soft);
+  padding: 8px 18px;
   border-radius: 999px;
   font-size: 13px;
   font-weight: 600;
@@ -897,29 +991,37 @@ a.table-teaser:hover { opacity: 0.8; }
   transition: background .18s, color .18s, border-color .18s, transform .15s;
 }
 .proj-tab:hover {
+  background: rgba(186,215,151,0.15);
   border-color: var(--matcha);
   color: var(--cream);
   transform: translateY(-1px);
 }
+/* Active tab — solid matcha green badge */
 .proj-tab-active {
-  background: var(--cream);
+  background: var(--matcha);
   color: var(--cherry-deep);
-  border-color: var(--cream);
+  border-color: var(--matcha);
+  font-weight: 700;
+}
+.proj-tab-active:hover {
+  background: var(--matcha-soft);
+  border-color: var(--matcha-soft);
+  transform: none;
 }
 .tab-icon { display: flex; align-items: center; }
 
-/* ── Featured hero card ── */
+/* ── Featured hero card — CREAM ── */
 .proj-featured {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 32px;
   align-items: center;
-  background: linear-gradient(135deg, #4a1520 0%, var(--cherry) 60%, #3d5c2e22 100%);
-  border: 1px solid rgba(186,215,151,0.28);
+  background: var(--cream);
+  border: 1px solid rgba(103,6,38,0.15);
   border-radius: 22px;
   padding: 38px 40px;
   margin-bottom: 28px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 80px rgba(246,238,217,0.06);
   position: relative;
   overflow: hidden;
 }
@@ -930,6 +1032,7 @@ a.table-teaser:hover { opacity: 0.8; }
   gap: 14px;
   flex-wrap: wrap;
 }
+/* GREEN badge on cream card */
 .featured-label {
   background: var(--matcha);
   color: var(--cherry-deep);
@@ -941,22 +1044,24 @@ a.table-teaser:hover { opacity: 0.8; }
   padding: 5px 12px;
   border-radius: 999px;
 }
+/* BURGUNDY text on cream card */
 .featured-title {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: clamp(26px, 3.5vw, 40px);
-  color: var(--cream);
+  color: var(--cherry-deep);
   margin: 0;
   line-height: 1.15;
 }
 .featured-summary {
   font-size: 16px;
   line-height: 1.7;
-  color: var(--ink-dim);
+  color: #5a0420;
   margin: 0;
   max-width: 520px;
 }
 .featured-cta-row { margin-top: 4px; }
+/* GREEN CTA on cream card */
 .featured-cta {
   background: var(--matcha);
   color: var(--cherry-deep);
@@ -967,19 +1072,35 @@ a.table-teaser:hover { opacity: 0.8; }
   font-weight: 700;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
-  transition: transform .15s, box-shadow .15s;
+  transition: transform .15s, box-shadow .15s, background .15s;
 }
 .featured-cta:hover {
+  background: var(--matcha-soft);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(186,215,151,0.3);
+  box-shadow: 0 8px 20px rgba(186,215,151,0.35);
 }
+/* GREEN doodle on cream card */
 .featured-right {
-  color: var(--matcha);
+  color: var(--matcha-deep);
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.5;
+}
+/* GREEN chips on cream card */
+.f-chip-featured {
+  background: rgba(143,174,106,0.15) !important;
+  border-color: rgba(143,174,106,0.35) !important;
+  color: var(--cherry-deep) !important;
+  font-weight: 600 !important;
+}
+/* Tags on cream card */
+.proj-featured .proj-tag {
+  color: var(--cherry);
   opacity: 0.65;
 }
+/* Cat badge on cream card */
+.proj-featured .proj-cat { color: var(--matcha-deep); }
 
 /* ── Grid ── */
 .proj-grid {
@@ -989,35 +1110,65 @@ a.table-teaser:hover { opacity: 0.8; }
 }
 .proj-grid-wide { grid-column: 1 / -1; }
 
-/* ── Regular project card ── */
+/* ── Regular project card — BURGUNDY ── */
 .proj-card {
   background: var(--cherry);
-  border: 1px solid rgba(186,215,151,0.13);
+  border: 1px solid rgba(186,215,151,0.10);
   border-radius: var(--radius);
   padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 11px;
   height: 100%;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform .2s, box-shadow .2s, border-color .2s, background .2s;
 }
 .proj-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0,0,0,0.32);
+  background: var(--cherry);
+  border-color: rgba(186,215,151,0.35);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.42), 0 0 28px rgba(186,215,151,0.07);
 }
-.proj-card-top { display: flex; align-items: center; }
+.proj-card-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+/* Handwritten category badge */
 .proj-cat {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
   color: var(--matcha);
+  background: rgba(186,215,151,0.1);
+  border: 1px solid rgba(186,215,151,0.22);
+  padding: 2px 10px 2px 7px;
+  border-radius: 999px;
+  line-height: 1.3;
+}
+/* Small card annotation (e.g. "something I made to make my life easier") */
+.proj-card-note {
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--cream);
+  opacity: 0.88;
+  transform: rotate(-1.5deg);
+  display: inline-block;
+  margin-bottom: -2px;
+  letter-spacing: 0.2px;
+}
+/* Featured card "one of my favorite builds" annotation */
+.featured-fav-note {
+  font-family: 'Caveat', cursive;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--cherry);
+  opacity: 0.65;
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-left: 4px;
 }
 .cat-icon { display: flex; align-items: center; }
+/* CREAM title */
 .proj-title {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
@@ -1038,22 +1189,18 @@ a.table-teaser:hover { opacity: 0.8; }
   flex-wrap: wrap;
   gap: 6px;
 }
-.f-chip-featured {
-  background: rgba(186,215,151,0.18) !important;
-  border-color: rgba(186,215,151,0.35) !important;
-  color: var(--matcha) !important;
-}
 .proj-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
+/* GREEN hashtag badges */
 .proj-tag {
   font-family: 'Caveat', cursive;
   font-size: 15px;
   font-weight: 600;
-  color: var(--cream);
-  opacity: 0.45;
+  color: var(--matcha-deep);
+  opacity: 0.8;
 }
 .proj-tag::before { content: '#'; margin-right: 1px; }
 .proj-card-actions {
@@ -1063,10 +1210,11 @@ a.table-teaser:hover { opacity: 0.8; }
   flex-wrap: wrap;
   margin-top: 4px;
 }
+/* GREEN "Need more context?" button */
 .proj-context {
   align-self: flex-start;
-  background: transparent;
-  border: 1px solid rgba(186,215,151,0.22);
+  background: rgba(186,215,151,0.08);
+  border: 1px solid rgba(186,215,151,0.3);
   color: var(--matcha);
   padding: 7px 14px;
   border-radius: 999px;
@@ -1081,13 +1229,14 @@ a.table-teaser:hover { opacity: 0.8; }
   color: var(--cherry-deep);
   transform: translateY(-1px);
 }
+/* CREAM github button */
 .proj-github {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  background: transparent;
+  background: rgba(246,238,217,0.07);
   border: 1px solid rgba(246,238,217,0.18);
-  color: var(--ink-dim);
+  color: rgba(246,238,217,0.65);
   padding: 7px 14px;
   border-radius: 999px;
   font-size: 13px;
@@ -1096,7 +1245,7 @@ a.table-teaser:hover { opacity: 0.8; }
   transition: background .18s, color .18s, transform .15s;
 }
 .proj-github:hover {
-  background: rgba(246,238,217,0.1);
+  background: rgba(246,238,217,0.13);
   color: var(--cream);
   transform: translateY(-1px);
 }
@@ -1224,6 +1373,462 @@ a.table-teaser:hover { opacity: 0.8; }
   .featured-right { display: none; }
   .proj-grid { grid-template-columns: 1fr; }
   .proj-grid-wide { grid-column: auto; }
+}
+
+/* ============= Experience page — Timeline ============= */
+.exp-page { padding-bottom: 60px; }
+
+.exp-head { margin-bottom: 52px; }
+.exp-main-title {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 1;
+  color: var(--cream);
+  margin: 0 0 8px;
+}
+.exp-main-sub {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--matcha);
+  margin: 0;
+}
+
+/* ── Timeline wrapper ── */
+.tl-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* The vertical cream line */
+.tl-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(246,238,217,0.22) 6%,
+    rgba(246,238,217,0.22) 94%,
+    transparent 100%
+  );
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Chapter labels — Now / Before that / Where it started */
+.tl-chapter-label {
+  text-align: center;
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--matcha-deep);
+  letter-spacing: 0.5px;
+  margin: 28px 0 4px;
+  position: relative;
+  z-index: 2;
+}
+.tl-chapter-label:first-of-type { margin-top: 0; }
+
+/* Each row: 3 columns [left-slot | spine | right-slot] */
+.tl-row {
+  display: grid;
+  grid-template-columns: 1fr 110px 1fr;
+  align-items: start;
+  position: relative;
+  padding: 10px 0;
+  gap: 0 18px;
+}
+
+/* Center spine */
+.tl-spine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  z-index: 2;
+  padding-top: 6px;
+}
+
+/* Year pill */
+.tl-pill {
+  background: var(--cherry-deep);
+  border: 1px solid rgba(246,238,217,0.28);
+  color: var(--cream);
+  font-family: 'Caveat', cursive;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 3px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Dot on the line */
+.tl-dot {
+  width: 9px;
+  height: 9px;
+  background: var(--matcha);
+  border-radius: 50%;
+  border: 2px solid var(--cherry-deep);
+  flex-shrink: 0;
+}
+
+/* Card slot */
+.tl-slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 4px 0;
+}
+
+/* ── Cards ── */
+.tl-card {
+  background: var(--cherry);
+  border: 1px solid rgba(186,215,151,0.10);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s;
+}
+.tl-card:hover {
+  border-color: rgba(186,215,151,0.28);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+}
+.tl-card-open {
+  border-color: rgba(186,215,151,0.30);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.40);
+}
+
+/* Closed face — clickable */
+.tl-front {
+  padding: 18px 20px 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  user-select: none;
+}
+.tl-front-text { display: flex; flex-direction: column; gap: 3px; }
+
+/* Era — tiny date above role */
+.tl-era {
+  font-family: 'Caveat', cursive;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--matcha-deep);
+  opacity: 0.8;
+  display: block;
+}
+
+/* Role title */
+.tl-role {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--cream);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Company + location */
+.tl-place {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--matcha-deep);
+  margin: 0;
+  line-height: 1.4;
+}
+.tl-loc {
+  font-weight: 400;
+  color: var(--ink-dim);
+  opacity: 0.65;
+}
+
+/* Tagline — one short line */
+.tl-tagline {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+  margin: 4px 0 0;
+  opacity: 0.85;
+}
+
+/* Peek button */
+.tl-peek-btn {
+  align-self: flex-start;
+  background: rgba(186,215,151,0.07);
+  border: 1px solid rgba(186,215,151,0.22);
+  color: var(--matcha);
+  font-family: 'Caveat', cursive;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .18s, color .18s;
+}
+.tl-peek-btn:hover {
+  background: var(--matcha);
+  color: var(--cherry-deep);
+}
+
+/* Expanded detail panel */
+.tl-detail {
+  border-top: 1px solid rgba(186,215,151,0.12);
+  padding: 16px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: detail-in .22s ease;
+}
+@keyframes detail-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* What I built — one sentence */
+.tl-what {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--cream);
+  margin: 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+/* Key wins list */
+.tl-wins {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  list-style: disc;
+}
+.tl-wins li {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+}
+
+/* Tools line */
+.tl-tools {
+  font-size: 11.5px;
+  color: var(--matcha-deep);
+  margin: 0;
+  opacity: 0.75;
+  letter-spacing: 0.2px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(186,215,151,0.08);
+}
+
+/* Education card — simple, no accordion */
+.tl-edu {
+  background: rgba(103,6,38,0.55);
+  border-color: rgba(186,215,151,0.10);
+  padding: 18px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.tl-edu-note {
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--matcha);
+  margin: 6px 0 0;
+  opacity: 0.85;
+  display: inline-block;
+  transform: rotate(-1.2deg);
+}
+
+/* ── Mobile: collapse to single column ── */
+@media (max-width: 720px) {
+  .tl-line { display: none; }
+  .tl-row {
+    grid-template-columns: 32px 1fr;
+    grid-template-rows: auto auto;
+    gap: 0 12px;
+  }
+  .tl-spine {
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8px;
+  }
+  .tl-pill { display: none; }
+  /* show a dot only on mobile */
+  .tl-dot { width: 10px; height: 10px; }
+  /* both slots collapse to second column */
+  .tl-slot {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .tl-slot:empty { display: none; }
+  .tl-row { padding: 6px 0; }
+  .tl-chapter-label { text-align: left; margin-left: 44px; }
+}
+
+/* ============= Contact — Wrap Hero ============= */
+.wrap-hero {
+  position: relative;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 64px;
+  overflow: visible;
+}
+
+/* "and" — top right */
+.wrap-and {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: clamp(36px, 5.5vw, 72px);
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -1px;
+  pointer-events: none;
+}
+
+/* "that's" — just below "and", right */
+.wrap-thats {
+  position: absolute;
+  top: clamp(38px, 6vw, 76px);
+  right: 0;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: clamp(52px, 7.5vw, 100px);
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -1px;
+  pointer-events: none;
+}
+
+/* "a wrap." — bottom left */
+.wrap-awrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: clamp(52px, 7.5vw, 102px);
+  color: var(--cream);
+  line-height: 1;
+  letter-spacing: -1px;
+  pointer-events: none;
+}
+
+/* ── Envelope ── */
+.env-wrap {
+  position: relative;
+  width: 280px;
+  height: 200px;
+  flex-shrink: 0;
+}
+
+/* Body */
+.env-body {
+  position: absolute;
+  inset: 0;
+  background: var(--cream);
+  border-radius: 3px;
+  box-shadow: 6px 12px 36px rgba(0,0,0,0.45), 0 2px 4px rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+/* Fold lines — two diagonal strips from corners to center-bottom */
+.env-fold-left {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(186,215,151,0.25) 0%,
+    transparent 50%
+  );
+}
+.env-fold-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    225deg,
+    rgba(186,215,151,0.25) 0%,
+    transparent 50%
+  );
+}
+
+/* Top flap — triangle */
+.env-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-top: 100px solid #D5E5BF;
+  z-index: 2;
+  filter: drop-shadow(0 3px 4px rgba(0,0,0,0.12));
+}
+
+/* Letter card sticking out of envelope */
+.env-letter {
+  position: absolute;
+  bottom: 34%;
+  left: 9%;
+  right: 9%;
+  background: #fff;
+  border-radius: 2px;
+  padding: 11px 13px 13px;
+  transform: rotate(-3.5deg);
+  z-index: 5;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.env-letter-text {
+  font-family: 'Caveat', cursive;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  line-height: 1.5;
+}
+.env-letter-sig {
+  font-family: 'Caveat', cursive;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cherry);
+  margin: 2px 0 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .wrap-hero { min-height: 240px; margin-bottom: 48px; }
+  .env-wrap { width: 200px; height: 144px; }
+  .env-flap {
+    border-left-width: 100px;
+    border-right-width: 100px;
+    border-top-width: 72px;
+  }
 }
 
 /* Contact */

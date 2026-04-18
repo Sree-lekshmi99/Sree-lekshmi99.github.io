@@ -1,9 +1,91 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 
+/* ── Confetti burst ── */
+function ConfettiBurst({ active }) {
+  const canvasRef = useRef(null)
+  const animRef = useRef(null)
+
+  useEffect(() => {
+    if (!active) return
+    const canvas = canvasRef.current
+    if (!canvas) return
+    const ctx = canvas.getContext('2d')
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    const colors = ['#BAD797', '#F6EED9', '#670626', '#8FAE6A', '#ffffff', '#D5E5BF']
+    const pieces = Array.from({ length: 120 }, () => ({
+      x: canvas.width / 2 + (Math.random() - 0.5) * 200,
+      y: canvas.height / 2 + (Math.random() - 0.5) * 100,
+      r: Math.random() * 7 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      vx: (Math.random() - 0.5) * 14,
+      vy: -(Math.random() * 14 + 6),
+      gravity: 0.45,
+      opacity: 1,
+      rot: Math.random() * 360,
+      rotV: (Math.random() - 0.5) * 8,
+      shape: Math.random() > 0.5 ? 'rect' : 'circle',
+    }))
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      let alive = false
+      pieces.forEach(p => {
+        p.x += p.vx
+        p.vy += p.gravity
+        p.y += p.vy
+        p.rot += p.rotV
+        p.opacity -= 0.013
+        if (p.opacity > 0) {
+          alive = true
+          ctx.save()
+          ctx.globalAlpha = Math.max(0, p.opacity)
+          ctx.translate(p.x, p.y)
+          ctx.rotate((p.rot * Math.PI) / 180)
+          ctx.fillStyle = p.color
+          if (p.shape === 'rect') {
+            ctx.fillRect(-p.r, -p.r / 2, p.r * 2, p.r)
+          } else {
+            ctx.beginPath()
+            ctx.arc(0, 0, p.r / 2, 0, Math.PI * 2)
+            ctx.fill()
+          }
+          ctx.restore()
+        }
+      })
+      if (alive) animRef.current = requestAnimationFrame(draw)
+    }
+    animRef.current = requestAnimationFrame(draw)
+    return () => cancelAnimationFrame(animRef.current)
+  }, [active])
+
+  if (!active) return null
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 999,
+      }}
+    />
+  )
+}
+
 export default function About() {
+  const [highFived, setHighFived] = useState(false)
+  const [confetti, setConfetti] = useState(false)
+
+  const handleHighFive = () => {
+    setHighFived(true)
+    setConfetti(true)
+    setTimeout(() => setConfetti(false), 3200)
+  }
+
   return (
     <>
+      <ConfettiBurst active={confetti} />
+
       {/* ===================== EDITORIAL HERO ===================== */}
       <div className="meet-editorial">
 
@@ -22,7 +104,6 @@ export default function About() {
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden="true"
           >
-            {/* looping wiggly path */}
             <path
               d="M 10 80
                  C 30 30,  80 10,  90 60
@@ -37,7 +118,6 @@ export default function About() {
               strokeLinejoin="round"
               fill="none"
             />
-            {/* arrowhead */}
             <path
               d="M 330 100 L 314 92 M 330 100 L 318 112"
               stroke="currentColor"
@@ -77,6 +157,20 @@ export default function About() {
                 <span className="outro-rest"> Nice. We'll get along.</span>
               </Link>
             </p>
+
+            {/* ── High Five ── */}
+            <div className="highfive-wrap">
+              {!highFived ? (
+                <button className="highfive-btn" onClick={handleHighFive}>
+                  High Five? 🖐️
+                </button>
+              ) : (
+                <div className="highfive-result">
+                  <span className="highfive-emoji">🙌</span>
+                  <span className="highfive-msg">you are officially one of the cool ones</span>
+                </div>
+              )}
+            </div>
 
             <Link to="/skills" className="table-teaser">
               <span className="table-teaser-text">What I bring to the table? Quite a bit, actually.</span>

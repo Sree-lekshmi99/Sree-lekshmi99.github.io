@@ -79,63 +79,14 @@ A large part of the work was about making the service production-ready. I added 
 }
 
 const projects = [
-  /* ── AI Projects ── */
-  {
-    id: 1,
-    category: 'AI Projects',
-    title: 'ECG Anomaly Detection',
-    github: 'https://github.com/Sree-lekshmi99/LSTM_ECG_Autencoder',
-    images: ['/lstm1.jpg', '/lstm2.jpg'],
-    stack: ['PyTorch', 'LSTM Autoencoder', 'Python', 'NumPy', 'scikit-learn'],
-    tags: ['Deep Learning', 'Healthcare AI', 'Time Series', 'Research Project'],
-    blurb: 'LSTM autoencoder trained on 5,000 healthy ECG sequences to flag abnormal rhythms using reconstruction error. 212/219 correct on balanced evaluation.',
-    detail: `This project explores ECG anomaly detection as a healthcare time-series problem using an LSTM autoencoder trained on normal heartbeat patterns. The dataset contains 5,000 ECG sequences of 140 timesteps, including normal, PVC, R-on-T, supra-ventricular/ectopic, and unclassified beats; the model was trained only on normal signals so that anomalies could be surfaced through elevated reconstruction loss.
-
-The workflow included ARFF-to-pandas ingestion, reshaping for LSTM input, class distribution analysis, time-series visualization, normalization, tensor conversion, and threshold-based classification. The report shows a chosen threshold of 26, with 212/219 correct normal predictions and 213/219 correct anomaly predictions on balanced evaluation sets. The project uses Python, PyTorch, pandas, NumPy, Matplotlib, and scikit-learn.`,
-  },
-  {
-    id: 2,
-    category: 'AI Projects',
-    title: 'LLM Bug Brief',
-    github: 'https://github.com/Sree-lekshmi99/LLM-Bug-Brief',
-    video: '/bug-brief.mp4',
-    stack: ['Python', 'OpenAI', 'Typer', 'python-dotenv'],
-    tags: ['LLM App', 'Developer Tools', 'Prompt Engineering', 'CLI Tool'],
-    blurb: 'CLI tool that converts messy bug reports into structured engineering briefs, GitHub-style issue templates, and priority labels, built with OpenAI and Typer.',
-    detail: `LLM Bug Brief is a CLI-first LLM tool for turning messy bug reports into cleaner engineering artifacts. Built with Python, OpenAI, Typer, and python-dotenv, it summarizes reports, extracts structured JSON-style metadata, rewrites issues into GitHub-style templates, and suggests priority or labels.
-
-It fits well as an applied-LLM developer tools project focused on triage automation and prompt design, demonstrating structured output generation, prompt chaining, and practical developer workflow automation.`,
-  },
-  {
-    id: 3,
-    category: 'AI Projects',
-    title: 'AI Medi ChatBot (Meddy)',
-    github: 'https://github.com/Sree-lekshmi99/AI_Medi_ChatBot',
-    stack: ['Python', 'PyTorch', 'NLTK', 'scikit-learn', 'Flask'],
-    tags: ['AI Chatbot', 'Healthcare AI', 'NLP', 'Classification'],
-    blurb: 'Healthcare chatbot that predicts likely diseases from symptoms and returns descriptions and precautions through a conversational web interface.',
-    detail: `Meddy is a symptom-based healthcare chatbot built with Python, PyTorch, NLTK, scikit-learn, Flask, pandas, and NumPy. It processes symptom input, classifies likely intents and disease categories, and responds with descriptions and precautionary guidance in a conversational format.
-
-The system combines NLP-based intent recognition with a multi-class disease classification model, making it an applied NLP and ML healthcare assistant project. The Flask web interface allows users to interact naturally with the bot, which returns grounded health guidance rather than open-ended LLM responses.`,
-  },
-  {
-    id: 4,
-    category: 'AI Projects',
-    title: 'Reinforcement Learning Taxi-v3',
-    stack: ['Python', 'OpenAI Gym', 'Q-Learning'],
-    tags: ['Reinforcement Learning', 'Experimental', 'Research Project'],
-    blurb: 'Q-learning agent built from scratch across 10,000 episodes, going from negative rewards to consistent task completion through epsilon-greedy tuning.',
-    detail: `Implemented the Q-learning algorithm from scratch using OpenAI Gym's Taxi-v3. Designed and tuned epsilon-greedy exploration, Q-table updates, learning rate, discount factor, and exploration decay across 10,000 episodes.
-
-Evaluated and visualized learning using episode reward tracking, demonstrating steady improvement from negative initial rewards to consistent successful task completion. The project explores core RL concepts: exploration vs. exploitation, reward shaping, and policy convergence, in a controlled grid-world environment.`,
-  },
-
-  /* ── Full Stack ── */
+  /* ── 1. Apply Pilot ── */
   {
     id: 15,
     category: 'Full Stack',
     categories: ['Full Stack', 'AI Projects'],
+    note: 'something I made to make my life easier',
     title: 'Apply Pilot',
+    video: '/apply_pilot.mp4',
     github: 'https://github.com/Sree-lekshmi99/Apply-pilot-automation',
     stack: ['React', 'Vite', 'OpenAI API', 'Recharts', 'Tailwind CSS', 'localStorage'],
     tags: ['LLM App', 'Full Stack', 'Developer Tools', 'AI Automation'],
@@ -147,6 +98,111 @@ The frontend is built with React 18 and Vite, styled with Tailwind CSS, and uses
 The LLM layer runs on the OpenAI API and handles several real workflows: reading a job posting URL (via r.jina.ai for text extraction), pulling out the job title, company, and description, then comparing uploaded resumes to the role to surface the best match. It also generates resume improvement suggestions aligned with ATS screening, and drafts LinkedIn connection messages, follow-ups, referral requests, and common application question responses using the resume and job description as context.
 
 The application tracker lets users save jobs, update statuses, add notes, and follow progress over time. The Recharts dashboard visualizes application activity month by month, making it easier to spot consistency, follow-up patterns, and momentum across the job search.`,
+  },
+
+  /* ── 2. ECG ── */
+  {
+    id: 1,
+    category: 'AI Projects',
+    note: 'this one kept me up at night',
+    title: 'ECG Anomaly Detection',
+    github: 'https://github.com/Sree-lekshmi99/LSTM_ECG_Autencoder',
+    images: ['/lstm1.jpg', '/lstm2.jpg'],
+    stack: ['PyTorch', 'LSTM Autoencoder', 'Python', 'NumPy', 'scikit-learn'],
+    tags: ['Deep Learning', 'Healthcare AI', 'Time Series', 'Research Project'],
+    blurb: 'LSTM autoencoder trained on 5,000 healthy ECG sequences to flag abnormal rhythms using reconstruction error. 212/219 correct on balanced evaluation.',
+    detail: `This project explores ECG anomaly detection as a healthcare time-series problem using an LSTM autoencoder trained on normal heartbeat patterns. The dataset contains 5,000 ECG sequences of 140 timesteps, including normal, PVC, R-on-T, supra-ventricular/ectopic, and unclassified beats; the model was trained only on normal signals so that anomalies could be surfaced through elevated reconstruction loss.
+
+The workflow included ARFF-to-pandas ingestion, reshaping for LSTM input, class distribution analysis, time-series visualization, normalization, tensor conversion, and threshold-based classification. The report shows a chosen threshold of 26, with 212/219 correct normal predictions and 213/219 correct anomaly predictions on balanced evaluation sets. The project uses Python, PyTorch, pandas, NumPy, Matplotlib, and scikit-learn.`,
+  },
+
+  /* ── 3. LLM Bug Brief ── */
+  {
+    id: 2,
+    category: 'AI Projects',
+    note: 'the first time I clawed my nails into LLM Open API',
+    title: 'LLM Bug Brief',
+    github: 'https://github.com/Sree-lekshmi99/LLM-Bug-Brief',
+    video: '/bug-brief.mp4',
+    stack: ['Python', 'OpenAI', 'Typer', 'python-dotenv'],
+    tags: ['LLM App', 'Developer Tools', 'Prompt Engineering', 'CLI Tool'],
+    blurb: 'CLI tool that converts messy bug reports into structured engineering briefs, GitHub-style issue templates, and priority labels, built with OpenAI and Typer.',
+    detail: `LLM Bug Brief is a CLI-first LLM tool for turning messy bug reports into cleaner engineering artifacts. Built with Python, OpenAI, Typer, and python-dotenv, it summarizes reports, extracts structured JSON-style metadata, rewrites issues into GitHub-style templates, and suggests priority or labels.
+
+It fits well as an applied-LLM developer tools project focused on triage automation and prompt design, demonstrating structured output generation, prompt chaining, and practical developer workflow automation.`,
+  },
+
+  /* ── 4. AI Medi ChatBot ── */
+  {
+    id: 3,
+    category: 'AI Projects',
+    note: 'pretty challenging, not gonna lie',
+    title: 'AI Medi ChatBot (Meddy)',
+    github: 'https://github.com/Sree-lekshmi99/AI_Medi_ChatBot',
+    stack: ['Python', 'PyTorch', 'NLTK', 'scikit-learn', 'Flask'],
+    tags: ['AI Chatbot', 'Healthcare AI', 'NLP', 'Classification'],
+    blurb: 'Healthcare chatbot that predicts likely diseases from symptoms and returns descriptions and precautions through a conversational web interface.',
+    detail: `Meddy is a symptom-based healthcare chatbot built with Python, PyTorch, NLTK, scikit-learn, Flask, pandas, and NumPy. It processes symptom input, classifies likely intents and disease categories, and responds with descriptions and precautionary guidance in a conversational format.
+
+The system combines NLP-based intent recognition with a multi-class disease classification model, making it an applied NLP and ML healthcare assistant project. The Flask web interface allows users to interact naturally with the bot, which returns grounded health guidance rather than open-ended LLM responses.`,
+  },
+
+  /* ── 5. Used Car ── */
+  {
+    id: 9,
+    category: 'Data Analysis',
+    title: 'Used Car Price Predictor',
+    github: 'https://github.com/Sree-lekshmi99/price-predictor-used-car-master',
+    image: '/car_price.jpg',
+    stack: ['Python', 'XGBoost', 'Random Forest', 'scikit-learn', 'pandas'],
+    tags: ['Applied ML', 'Regression', 'Feature Engineering', 'Tabular Modeling'],
+    blurb: 'ML regression pipeline on 370,000 used car listings. Best model hit R² of 0.86 and RMSE of 1,698 after engineered features and outlier handling.',
+    detail: `This project predicts used-car prices from a dataset of 370,000 rows and 20 columns, using features such as mileage, brand, model, fuel type, gearbox, registration year, and repair status. The pipeline includes missing-value and duplicate removal, translation of German categorical values into English, one-hot encoding, feature engineering (age_of_car, mileage_per_year), MinMax scaling, log transformation, and outlier handling with IQR.
+
+Multiple regressors were compared: Decision Tree, Random Forest, XGBoost, Support Vector Regressor, Lasso, Ridge, and Gradient Boosting. The best-performing models achieved R² up to 0.86 and RMSE as low as 1,698, making this a strong applied-ML and feature-engineering project in structured regression modeling.`,
+  },
+
+  /* ── 5. Finance Dashboard ── */
+  {
+    id: 14,
+    category: 'Power BI',
+    title: 'Finance Dashboard',
+    github: 'https://github.com/Sree-lekshmi99/Finance_dashboard_PowerBI',
+    image: '/finance.jpg',
+    stack: ['Power BI', 'DAX', 'SQL'],
+    tags: ['Power BI', 'Business Intelligence', 'Finance Analytics'],
+    blurb: 'Interactive Power BI finance dashboard for KPI tracking and financial reporting, built for business stakeholders who need clear, drill-down visibility into key metrics.',
+    detail: `A finance-focused Power BI dashboard project built for interactive reporting and KPI visualization. The dashboard provides business stakeholders with drill-down visibility into key financial metrics, combining DAX measures and SQL-backed data sources for a clean, interactive reporting experience.
+
+Positioned as a visualization and reporting project centered on interactive financial analysis in Power BI, demonstrating BI design, DAX formula authoring, and the ability to translate financial data into clear executive-facing dashboards.`,
+  },
+
+  /* ── 6. Mortgage Rates ── */
+  {
+    id: 11,
+    category: 'Data Analysis',
+    title: 'Mortgage Rates & Home Loan Forecasting',
+    github: 'https://github.com/Sree-lekshmi99/Impact_of_mortgage_rate_on_homeloans',
+    images: ['/mortage3.png', '/mortage4.png', '/mortage5.png'],
+    stack: ['R', 'RegARIMA', 'VAR', 'FRED Data', 'tidyverse', 'vars'],
+    tags: ['Time Series', 'Financial Analytics', 'Forecasting', 'R'],
+    blurb: 'RegARIMA model outperformed VAR (MAE 6.87 vs 13.68) in forecasting residential loan volumes using 30-year mortgage rates as an external regressor.',
+    detail: `This project studies the relationship between 30-year fixed mortgage rates and residential real-estate loans from commercial banks. Using R, FRED economic data, and time-series packages including forecast, vars, fpp3, and tidyverse, the analysis covers decomposition, correlation analysis, stationarity testing, and model comparison.
+
+The RegARIMA model with mortgage rates as an external regressor outperformed the VAR model, with MAE 6.87518 versus 13.68, positioning this as a financial forecasting study relevant to lending strategy, risk assessment, and market-trend analysis. The project demonstrates rigorous time-series methodology and economic data storytelling.`,
+  },
+
+  /* ── The rest ── */
+  {
+    id: 4,
+    category: 'AI Projects',
+    title: 'Reinforcement Learning Taxi-v3',
+    stack: ['Python', 'OpenAI Gym', 'Q-Learning'],
+    tags: ['Reinforcement Learning', 'Experimental', 'Research Project'],
+    blurb: 'Q-learning agent built from scratch across 10,000 episodes, going from negative rewards to consistent task completion through epsilon-greedy tuning.',
+    detail: `Implemented the Q-learning algorithm from scratch using OpenAI Gym's Taxi-v3. Designed and tuned epsilon-greedy exploration, Q-table updates, learning rate, discount factor, and exploration decay across 10,000 episodes.
+
+Evaluated and visualized learning using episode reward tracking, demonstrating steady improvement from negative initial rewards to consistent successful task completion. The project explores core RL concepts: exploration vs. exploitation, reward shaping, and policy convergence, in a controlled grid-world environment.`,
   },
   {
     id: 5,
@@ -171,8 +227,6 @@ A containerized CNN-based QR/code verification service improved checkpoint speed
 
 The stack includes React, Node.js, and several AWS services: Cognito, Lambda, Amplify, Amazon Lex, DynamoDB, AppSync, Elasticsearch, Kibana, CloudWatch, and SNS. The architecture demonstrates serverless design, chatbot interaction via Amazon Lex, real-time data storage in DynamoDB, and analytics/monitoring through Kibana dashboards and CloudWatch metrics. CI/CD was set up via AWS Amplify.`,
   },
-
-  /* ── Data Analysis ── */
   {
     id: 7,
     category: 'Data Analysis',
@@ -200,19 +254,6 @@ The models identified weak subjects, segmented students into meaningful cohorts,
 To make results usable, I built Flask REST APIs, Power BI dashboards, and Streamlit apps so both technical and non-technical stakeholders could explore cohort trends and intervention outcomes. The practical result was a 30% boost in program outcomes and a data-driven foundation for smarter registration and outreach decisions.`,
   },
   {
-    id: 9,
-    category: 'Data Analysis',
-    title: 'Used Car Price Predictor',
-    github: 'https://github.com/Sree-lekshmi99/price-predictor-used-car-master',
-    image: '/car_price.jpg',
-    stack: ['Python', 'XGBoost', 'Random Forest', 'scikit-learn', 'pandas'],
-    tags: ['Applied ML', 'Regression', 'Feature Engineering', 'Tabular Modeling'],
-    blurb: 'ML regression pipeline on 370,000 used car listings. Best model hit R² of 0.86 and RMSE of 1,698 after engineered features and outlier handling.',
-    detail: `This project predicts used-car prices from a dataset of 370,000 rows and 20 columns, using features such as mileage, brand, model, fuel type, gearbox, registration year, and repair status. The pipeline includes missing-value and duplicate removal, translation of German categorical values into English, one-hot encoding, feature engineering (age_of_car, mileage_per_year), MinMax scaling, log transformation, and outlier handling with IQR.
-
-Multiple regressors were compared: Decision Tree, Random Forest, XGBoost, Support Vector Regressor, Lasso, Ridge, and Gradient Boosting. The best-performing models achieved R² up to 0.86 and RMSE as low as 1,698, making this a strong applied-ML and feature-engineering project in structured regression modeling.`,
-  },
-  {
     id: 10,
     category: 'Data Analysis',
     title: 'San Francisco Crime Analysis',
@@ -224,21 +265,6 @@ Multiple regressors were compared: Decision Tree, Random Forest, XGBoost, Suppor
 
 Key findings include the prevalence of theft, time-based concentration patterns, hotspot districts, and the practical value of comparing simple and complex forecasting models. The project is best framed as an analytical, research-style data science build focused on safety, forecasting, and spatial insights, with visualizations that communicate trends clearly to both technical and policy audiences.`,
   },
-  {
-    id: 11,
-    category: 'Data Analysis',
-    title: 'Mortgage Rates & Home Loan Forecasting',
-    github: 'https://github.com/Sree-lekshmi99/Impact_of_mortgage_rate_on_homeloans',
-    images: ['/mortage3.png', '/mortage4.png', '/mortage5.png'],
-    stack: ['R', 'RegARIMA', 'VAR', 'FRED Data', 'tidyverse', 'vars'],
-    tags: ['Time Series', 'Financial Analytics', 'Forecasting', 'R'],
-    blurb: 'RegARIMA model outperformed VAR (MAE 6.87 vs 13.68) in forecasting residential loan volumes using 30-year mortgage rates as an external regressor.',
-    detail: `This project studies the relationship between 30-year fixed mortgage rates and residential real-estate loans from commercial banks. Using R, FRED economic data, and time-series packages including forecast, vars, fpp3, and tidyverse, the analysis covers decomposition, correlation analysis, stationarity testing, and model comparison.
-
-The RegARIMA model with mortgage rates as an external regressor outperformed the VAR model, with MAE 6.87518 versus 13.68, positioning this as a financial forecasting study relevant to lending strategy, risk assessment, and market-trend analysis. The project demonstrates rigorous time-series methodology and economic data storytelling.`,
-  },
-
-  /* ── Power BI ── */
   {
     id: 12,
     category: 'Power BI',
@@ -261,28 +287,20 @@ The dashboard allowed stakeholders to drill into subject-level weakness signals,
 
 The work bridged the gap between data science outputs and stakeholder communication, making it easy for program leads to understand which interventions were working and where additional support was needed, without requiring them to dig into raw model outputs.`,
   },
-  {
-    id: 14,
-    category: 'Power BI',
-    title: 'Finance Dashboard',
-    github: 'https://github.com/Sree-lekshmi99/Finance_dashboard_PowerBI',
-    image: '/finance.jpg',
-    stack: ['Power BI', 'DAX', 'SQL'],
-    tags: ['Power BI', 'Business Intelligence', 'Finance Analytics'],
-    blurb: 'Interactive Power BI finance dashboard for KPI tracking and financial reporting, built for business stakeholders who need clear, drill-down visibility into key metrics.',
-    detail: `A finance-focused Power BI dashboard project built for interactive reporting and KPI visualization. The dashboard provides business stakeholders with drill-down visibility into key financial metrics, combining DAX measures and SQL-backed data sources for a clean, interactive reporting experience.
-
-Positioned as a visualization and reporting project centered on interactive financial analysis in Power BI, demonstrating BI design, DAX formula authoring, and the ability to translate financial data into clear executive-facing dashboards.`,
-  },
 ]
 
 function TagChip({ label }) {
   return <span className="proj-tag">{label}</span>
 }
 
+const ctaLabels = ['Read story →', 'Build notes →', 'Peek inside →']
+
 function ProjectCard({ p, onContext }) {
   return (
-    <article className="proj-card">
+    <article className={`proj-card${p.accent ? ' proj-card-accent' : ''}`}>
+      {p.note && (
+        <div className="proj-card-note">{p.note}</div>
+      )}
       <div className="proj-card-top">
         {(p.categories || [p.category]).map(cat => (
           <span className="proj-cat" key={cat}>
@@ -302,7 +320,7 @@ function ProjectCard({ p, onContext }) {
       </div>
       <div className="proj-card-actions">
         <button className="proj-context" onClick={() => onContext(p)}>
-          Need more context? →
+          {ctaLabels[p.id % 3]}
         </button>
         {p.github && (
           <a className="proj-github" href={p.github} target="_blank" rel="noreferrer">
@@ -328,7 +346,7 @@ export default function Projects() {
   const showFeatured = activeTab === 'All' || activeTab === 'AI Projects'
 
   return (
-    <div className="skills-page">
+    <div className="skills-page projects-page">
       {/* ── headline ── */}
       <div className="skills-head">
         <div className="skills-doodle-row" aria-hidden="true">
@@ -360,6 +378,7 @@ export default function Projects() {
           <div className="featured-left">
             <div className="featured-label-row">
               <span className="featured-label">★ Featured Build</span>
+              <span className="featured-fav-note">one of my favorite builds ✦</span>
               <span className="proj-cat">
                 <span className="cat-icon"><AISpark /></span>
                 AI Projects
@@ -466,13 +485,13 @@ export default function Projects() {
       )}
 
       {/* ── transition ── */}
-      <Link to="/contact" className="table-teaser">
-        <span className="table-teaser-text">Like what you see? Let's actually talk.</span>
+      <Link to="/experience" className="table-teaser">
+        <span className="table-teaser-text">Want to know the origin story? Scroll for the lore ↓</span>
         <span className="table-teaser-cue">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M8 2 L8 14 M3 9 L8 14 L13 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          let's talk
+          experience
         </span>
       </Link>
     </div>

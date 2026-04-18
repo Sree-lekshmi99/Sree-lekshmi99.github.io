@@ -8,11 +8,12 @@ import Projects from './pages/Projects.jsx'
 import Contact from './pages/Contact.jsx'
 
 const navItems = [
-  { to: '/',           label: 'home' },
-  { to: '/about',      label: 'human' },
-  { to: '/skills',     label: 'skills' },
-  { to: '/projects',   label: "things i've built" },
-  { to: '/contact',    label: "let's talk" },
+  { to: '/',            label: 'home' },
+  { to: '/about',       label: 'human' },
+  { to: '/skills',      label: 'skills' },
+  { to: '/projects',    label: "things i've built" },
+  { to: '/experience',  label: 'experience' },
+  { to: '/contact',     label: "let's talk" },
 ]
 
 export default function App() {
