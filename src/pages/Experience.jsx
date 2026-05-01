@@ -9,7 +9,7 @@ const milestones = [
     sub: 'Shri Shankaracharya Group of Institutions',
     note: 'where it all started',
     detail: {
-      what: 'Four years building the foundation — algorithms, systems, and the first real taste of what software does in the world.',
+      what: 'Four years building the foundation algorithms, systems, and the first real taste of what software does in the world.',
       wins: [
         'Core CS fundamentals across data structures, OS, networks, and databases',
         'First exposure to real software development and engineering workflows',
@@ -44,7 +44,7 @@ const milestones = [
     sub: 'University at Buffalo, SUNY',
     note: 'the bet that changed everything',
     detail: {
-      what: 'Moved countries and went all in on data science and ML — built the technical depth that now drives every AI engineering decision.',
+      what: 'Moved countries and went all in on data science and ML built the technical depth that now drives every AI engineering decision.',
       wins: [
         'Deep-dived into ML, statistics, time series, NLP, and distributed systems',
         'Graduated with hands-on research and production experience running in parallel',
@@ -62,7 +62,7 @@ const milestones = [
     note: 'first time owning research end to end',
     hasProject: true, projectId: 8,
     detail: {
-      what: 'ML on student LMS data to surface where learners struggled — contributed to a 30% boost in program outcomes.',
+      what: 'ML on student LMS data to surface where learners struggled which contributed to a 30% boost in program outcomes.',
       wins: [
         'ML models on student data contributed to a 30% boost in program outcomes',
         'Built Flask APIs and Power BI dashboards for non-technical stakeholders',
@@ -80,7 +80,7 @@ const milestones = [
     note: 'gained ownership',
     hasProject: true, projectId: 7,
     detail: {
-      what: 'End-to-end ML pipeline turning scattered sponsor data into fundraising momentum — 40% pipeline growth, 30% more donations.',
+      what: 'End-to-end ML pipeline turning scattered sponsor data into fundraising momentum led 40% pipeline growth, 30% more donations.',
       wins: [
         'Grew sponsor pipeline 40%, reply rates 45%, donations 30% over prior cycle',
         'FastAPI services with JWT + RBAC, deployed via Docker and ECS',
@@ -99,7 +99,7 @@ const milestones = [
     featured: true,
     hasProject: true, projectId: 0,
     detail: {
-      what: 'Production AI recommendations combining user signals, catalog context, and LLM orchestration — cut p95 latency 25% in production.',
+      what: 'Production AI recommendations combining user signals, catalog context, and LLM orchestration that cut p95 latency 25% in production.',
       wins: [
         'RAG pipeline on AWS Lambda + FastAPI with LangChain and LangGraph',
         'Cut p95 latency 25% via prompt optimization and smarter context retrieval',
@@ -113,10 +113,7 @@ const milestones = [
 
 const annotations = [
   { x: 390, y: 218, text: 'first step into the field', rotate: -3 },
-  { x: 390, y: 390, text: 'took the leap · took a risk', rotate: 4 },
   { x: 390, y: 550, text: 'the important learning curve', rotate: -3 },
-  { x: 390, y: 710, text: 'remembering my potential', rotate: 3 },
-  { x: 355, y: 888, text: 'and then it clicked', rotate: -3 },
   { x: 340, y: 1070, text: 'still writing this part...', rotate: -2 },
 ]
 
@@ -246,24 +243,19 @@ export default function Experience() {
                 <circle cx={m.x} cy={m.y} r={m.featured ? 8 : 6}
                   fill={isActive ? '#BAD797' : m.featured ? '#BAD797' : 'rgba(246,238,217,0.85)'} />
 
-                {/* Labels */}
+                {/* Labels — year + title only; company is in the side panel */}
                 {m.years && (
-                  <text x={tx} y={m.y - 22} textAnchor={anchor}
-                    fontFamily="Caveat, cursive" fontSize="14"
-                    fill={isActive ? 'rgba(186,215,151,1)' : 'rgba(186,215,151,0.7)'} fontWeight="700">
+                  <text x={tx} y={m.y - 10} textAnchor={anchor}
+                    fontFamily="Caveat, cursive" fontSize="13"
+                    fill={isActive ? 'rgba(186,215,151,1)' : 'rgba(186,215,151,0.65)'} fontWeight="700">
                     {m.years}
                   </text>
                 )}
-                <text x={tx} y={m.y - 5} textAnchor={anchor}
-                  fontFamily="Inter, sans-serif" fontSize="13"
-                  fill={isActive ? '#ffffff' : 'rgba(246,238,217,0.92)'}
-                  fontWeight="800" letterSpacing="0.6">
+                <text x={tx} y={m.y + 7} textAnchor={anchor}
+                  fontFamily="Inter, sans-serif" fontSize="12"
+                  fill={isActive ? '#ffffff' : 'rgba(246,238,217,0.88)'}
+                  fontWeight="800" letterSpacing="0.5">
                   {m.title}
-                </text>
-                <text x={tx} y={m.y + 12} textAnchor={anchor}
-                  fontFamily="Inter, sans-serif" fontSize="10.5"
-                  fill={isActive ? 'rgba(186,215,151,0.9)' : 'rgba(186,215,151,0.55)'}>
-                  {m.sub}
                 </text>
               </g>
             )

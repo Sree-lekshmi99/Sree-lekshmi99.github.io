@@ -1691,7 +1691,7 @@ a.table-teaser:hover { opacity: 0.8; }
   .journey-bubble { width: 230px; }
 }
 
-/* ── Content row: map + side panel ── */
+/* ── Content row: map + side panel (panel always visible) ── */
 .journey-content-row {
   display: flex;
   align-items: flex-start;
@@ -1707,45 +1707,114 @@ a.table-teaser:hover { opacity: 0.8; }
   transition: max-width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Side panel slides in from the right */
+/* Side panel: always visible, glass effect */
 .journey-side-panel {
-  width: 0;
-  overflow: hidden;
+  width: 300px;
   flex-shrink: 0;
-  transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.journey-side-panel--open {
-  width: 320px;
-}
-
-/* Inner content fades in once panel is open */
-.journey-side-content {
-  width: 320px;
-  padding: 24px 24px 24px 20px;
+  margin-left: 24px;
+  position: sticky;
+  top: 88px;
+  height: calc(100vh - 110px);
+  background: rgba(58, 3, 19, 0.52);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(246,238,217,0.10);
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  position: sticky;
-  top: 80px;
-  animation: side-content-in 0.3s 0.2s ease both;
+}
+
+/* Empty / default state */
+.journey-side-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  animation: side-content-in 0.4s ease both;
+}
+.journey-side-empty-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(186,215,151,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(186,215,151,0.45);
+}
+.journey-side-empty p {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  color: rgba(246,238,217,0.30);
+  margin: 0;
+  line-height: 1.5;
+}
+.journey-side-empty-sub {
+  font-size: 11.5px;
+  color: rgba(186,215,151,0.22);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Filled / selected state */
+.journey-side-content {
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow-y: auto;
+  height: 100%;
+  animation: side-content-in 0.28s ease both;
 }
 @keyframes side-content-in {
-  from { opacity: 0; transform: translateX(12px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive: stack on small screens */
-@media (max-width: 700px) {
+/* Mobile: hide side panel, show bottom sheet instead */
+@media (max-width: 720px) {
   .journey-content-row { flex-direction: column; }
-  .journey-side-panel--open { width: 100%; }
-  .journey-side-content { width: 100%; position: static; padding: 20px 0 0; }
+  .journey-side-panel  { display: none; }
 }
 
-/* ── Shared detail card styles (used by side panel) ── */
+/* ── Mobile bottom sheet ── */
+.journey-bottom-sheet {
+  display: none;
+}
+@media (max-width: 720px) {
+  .journey-bottom-sheet {
+    display: block;
+    margin-top: 20px;
+    background: rgba(58, 3, 19, 0.60);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(246,238,217,0.10);
+    border-radius: 20px;
+    overflow: hidden;
+    animation: sheet-up 0.3s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  @keyframes sheet-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .journey-bottom-sheet .journey-side-content {
+    height: auto;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}
+
+/* ── Detail card styles (used by side panel) ── */
 .journey-detail-card {
   position: relative;
 }
 
+/* close button — kept only on mobile bottom sheet */
 .journey-detail-card-close {
   position: absolute;
   top: 16px; right: 16px;
@@ -1793,7 +1862,7 @@ a.table-teaser:hover { opacity: 0.8; }
   margin-top: 2px;
 }
 .journey-detail-card-what {
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 1.75;
   color: var(--ink-dim);
   font-style: italic;
