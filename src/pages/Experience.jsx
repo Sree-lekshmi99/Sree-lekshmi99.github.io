@@ -282,21 +282,53 @@ export default function Experience() {
 
       </div>{/* end map-wrap */}
 
-      {/* Side panel — always in DOM so width can transition smoothly */}
+      {/* Side panel — width 0 when empty, slides in when active */}
       <div className={`journey-side-panel${active ? ' journey-side-panel--open' : ''}`}>
-        {active && (
-          <div className="journey-side-content" key={active.id}>
-            <button className="journey-detail-card-close" onClick={close} aria-label="Close">×</button>
+        <div className="journey-side-inner">
+          {active && (
+            <div className="journey-side-content" key={active.id}>
+              {active.years && <span className="journey-detail-card-years">{active.years}</span>}
+              <h3 className="journey-detail-card-role">{active.title}</h3>
+              <p className="journey-detail-card-company">{active.sub}</p>
+              {active.note && <span className="journey-detail-card-note">{active.note}</span>}
 
-            {active.years && <span className="journey-detail-card-years">{active.years}</span>}
-            <h3 className="journey-detail-card-role">{active.title}</h3>
-            <p className="journey-detail-card-company">{active.sub}</p>
+              <p className="journey-detail-card-tools">{active.detail.tools}</p>
+              <p className="journey-detail-card-what">{active.detail.what}</p>
+
+              {active.hasProject && (
+                <button
+                  className="journey-projects-btn"
+                  onClick={() => navigate('/projects', { state: { openProjectId: active.projectId } })}
+                >
+                  see what I built here
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <path d="M2 6.5h9M7 2l4.5 4.5L7 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+
+      </div>{/* end content-row */}
+
+      {/* Mobile bottom sheet — shown below SVG when a point is selected */}
+      {active && (
+        <div className="journey-bottom-sheet">
+          <div className="journey-side-content" key={`mobile-${active.id}`}>
+            <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start' }}>
+              <div>
+                {active.years && <span className="journey-detail-card-years">{active.years}</span>}
+                <h3 className="journey-detail-card-role" style={{ marginTop: 4 }}>{active.title}</h3>
+                <p className="journey-detail-card-company">{active.sub}</p>
+              </div>
+              <button className="journey-detail-card-close" onClick={close} aria-label="Close"
+                style={{ position:'static', flexShrink:0, marginTop:0 }}>×</button>
+            </div>
             {active.note && <span className="journey-detail-card-note">{active.note}</span>}
-
             <p className="journey-detail-card-tools">{active.detail.tools}</p>
-
             <p className="journey-detail-card-what">{active.detail.what}</p>
-
             {active.hasProject && (
               <button
                 className="journey-projects-btn"
@@ -309,10 +341,8 @@ export default function Experience() {
               </button>
             )}
           </div>
-        )}
-      </div>
-
-      </div>{/* end content-row */}
+        </div>
+      )}
 
       <Link to="/contact" className="table-teaser" style={{ marginTop: 48 }}>
         <span className="table-teaser-text">Sounds good? Let's actually talk.</span>

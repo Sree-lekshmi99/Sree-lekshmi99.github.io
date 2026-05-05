@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import ResumeModal from '../components/ResumeModal.jsx'
 
 /* ── Confetti burst ── */
 function ConfettiBurst({ active }) {
@@ -73,8 +74,9 @@ function ConfettiBurst({ active }) {
 }
 
 export default function About() {
-  const [highFived, setHighFived] = useState(false)
-  const [confetti, setConfetti] = useState(false)
+  const [highFived, setHighFived]   = useState(false)
+  const [confetti, setConfetti]     = useState(false)
+  const [showResume, setShowResume] = useState(false)
 
   const handleHighFive = () => {
     setHighFived(true)
@@ -85,6 +87,7 @@ export default function About() {
   return (
     <>
       <ConfettiBurst active={confetti} />
+      {showResume && <ResumeModal onClose={() => setShowResume(false)} />}
 
       {/* ===================== EDITORIAL HERO ===================== */}
       <div className="meet-editorial">
@@ -157,6 +160,15 @@ export default function About() {
                 <span className="outro-rest"> Nice. We'll get along.</span>
               </Link>
             </p>
+
+            {/* ── Resume shortcut ── */}
+            <button className="resume-peek-btn" onClick={() => setShowResume(true)}>
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="1" width="10" height="13" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+                <path d="M5 5h6M5 8h6M5 11h3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+              </svg>
+              no time to explore? here's the one-pager
+            </button>
 
             {/* ── High Five ── */}
             <div className="highfive-wrap">
