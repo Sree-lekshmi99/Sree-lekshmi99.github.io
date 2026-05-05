@@ -107,7 +107,7 @@ The application tracker lets users save jobs, update statuses, add notes, and fo
     note: 'this one kept me up at night',
     title: 'ECG Anomaly Detection',
     github: 'https://github.com/Sree-lekshmi99/LSTM_ECG_Autencoder',
-    images: ['/lstm1.jpg', '/lstm2.jpg'],
+    images: ['/lstm1.webp', '/lstm2.webp'],
     stack: ['PyTorch', 'LSTM Autoencoder', 'Python', 'NumPy', 'scikit-learn'],
     tags: ['Deep Learning', 'Healthcare AI', 'Time Series', 'Research Project'],
     blurb: 'LSTM autoencoder trained on 5,000 healthy ECG sequences to flag abnormal rhythms using reconstruction error. 212/219 correct on balanced evaluation.',
@@ -153,7 +153,7 @@ The system combines NLP-based intent recognition with a multi-class disease clas
     category: 'Data Analysis',
     title: 'Used Car Price Predictor',
     github: 'https://github.com/Sree-lekshmi99/price-predictor-used-car-master',
-    image: '/car_price.jpg',
+    image: '/car_price.webp',
     stack: ['Python', 'XGBoost', 'Random Forest', 'scikit-learn', 'pandas'],
     tags: ['Applied ML', 'Regression', 'Feature Engineering', 'Tabular Modeling'],
     blurb: 'ML regression pipeline on 370,000 used car listings. Best model hit R² of 0.86 and RMSE of 1,698 after engineered features and outlier handling.',
@@ -168,7 +168,7 @@ Multiple regressors were compared: Decision Tree, Random Forest, XGBoost, Suppor
     category: 'Power BI',
     title: 'Finance Dashboard',
     github: 'https://github.com/Sree-lekshmi99/Finance_dashboard_PowerBI',
-    image: '/finance.jpg',
+    image: '/finance.webp',
     stack: ['Power BI', 'DAX', 'SQL'],
     tags: ['Power BI', 'Business Intelligence', 'Finance Analytics'],
     blurb: 'Interactive Power BI finance dashboard for KPI tracking and financial reporting, built for business stakeholders who need clear, drill-down visibility into key metrics.',
@@ -183,7 +183,7 @@ Positioned as a visualization and reporting project centered on interactive fina
     category: 'Data Analysis',
     title: 'Mortgage Rates & Home Loan Forecasting',
     github: 'https://github.com/Sree-lekshmi99/Impact_of_mortgage_rate_on_homeloans',
-    images: ['/mortage3.png', '/mortage4.png', '/mortage5.png'],
+    images: ['/mortage3.webp', '/mortage4.webp', '/mortage5.webp'],
     stack: ['R', 'RegARIMA', 'VAR', 'FRED Data', 'tidyverse', 'vars'],
     tags: ['Time Series', 'Financial Analytics', 'Forecasting', 'R'],
     blurb: 'RegARIMA model outperformed VAR (MAE 6.87 vs 13.68) in forecasting residential loan volumes using 30-year mortgage rates as an external regressor.',
@@ -474,15 +474,15 @@ export default function Projects() {
               </a>
             )}
             {modal.video && (
-              <video className="modal-video" src={modal.video} controls playsInline />
+              <video className="modal-video" src={modal.video} controls playsInline preload="none" />
             )}
             {modal.image && (
-              <img src={modal.image} alt={modal.title} className="modal-img" />
+              <img src={modal.image} alt={modal.title} className="modal-img" loading="lazy" decoding="async" />
             )}
             {modal.images && (
               <div className="modal-img-grid">
                 {modal.images.map((src, i) => (
-                  <img key={i} src={src} alt={`${modal.title} ${i + 1}`} className="modal-img" />
+                  <img key={i} src={src} alt={`${modal.title} ${i + 1}`} className="modal-img" loading="lazy" decoding="async" />
                 ))}
               </div>
             )}

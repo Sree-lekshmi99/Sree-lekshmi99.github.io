@@ -28,14 +28,16 @@ export default function Home() {
           {imgOk ? (
             <img
               className="peek-girl"
-              src="/peek-girl.png"
+              src="/peek-girl.webp"
               alt="Peeking illustration"
+              loading="eager"
+              decoding="async"
               onError={() => setImgOk(false)}
             />
           ) : (
             <div className="peek-fallback">
               Save your peek-girl image as<br />
-              <strong>public/peek-girl.png</strong><br />
+              <strong>public/peek-girl.webp</strong><br />
               and refresh 🍒
             </div>
           )}

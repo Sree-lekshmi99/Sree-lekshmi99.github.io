@@ -131,7 +131,7 @@ export default function About() {
           </svg>
 
           <div className="meet-cutout">
-            <img src="/photo.jpeg" alt="Sree Lekshmi" />
+            <img src="/photo.webp" alt="Sree Lekshmi" loading="eager" decoding="async" />
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@ export default function About() {
 
         {/* Location — no card, just illustration + pin */}
         <div className="location-simple">
-          <img className="sf-art" src="/sf.png" alt="San Francisco illustration" />
+          <img className="sf-art" src="/sf.webp" alt="San Francisco illustration" loading="lazy" decoding="async" />
           <div className="location-info">
             <span className="location-pin">📍</span>
             <div>
